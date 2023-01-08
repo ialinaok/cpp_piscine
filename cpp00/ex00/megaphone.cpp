@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/31 12:19:21 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/01/08 16:03:54 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/01/08 16:07:09 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	main(int argc, char **argv)
 		std::cout << std::endl;
 	}
 	else if (argc == 1)
-		std::cout << "* CAT CRYING FOR FOOD, AKA LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		std::cout << "* HUNGRY CAT CRYING FOR FOOD, AKA LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 	return (0);
 }
