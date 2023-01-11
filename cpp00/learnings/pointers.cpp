@@ -1,47 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   accessors.cpp                                      :+:      :+:    :+:   */
+/*   pointers.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/11 14:30:35 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/11 14:43:43 by apielasz         ###   ########.fr       */
+/*   Created: 2023/01/11 17:06:07 by apielasz          #+#    #+#             */
+/*   Updated: 2023/01/11 17:08:51 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "accessors.hpp"
+#include "pointers.hpp"
 
-Accessors::Accessors (void) {
+Pointers::Pointers(void) : foo(0) {
 
-	std::cout << "Constuctor Accessors called" << std::endl;
-	
-	this->setFoo(0);
-	std::cout << "this->getFoo(): " << this->getFoo() << std::endl;
-	
+	std::cout << "Constructor Pointers called" << std::endl;
 	std::cout << ">>> end of constructor <<<" << std::endl;
-	return ;
-}
-
-Accessors::~Accessors (void) {
-
-	std::cout << "Destructor Accessors called" << std::endl;
 
 	return ;
 }
 
-int	Accessors::getFoo(void) const {
+Pointers::~Pointers(void) {
 
-	return this->_foo;
+	std::cout << "Destructor Pointers called" << std::endl;
+
+	return ;
 }
 
-int	Accessors::setFoo(int v) {
+void	Pointers::bar(void) const {
+	
+	std::cout << "Member function bar() called" << std::endl;
 
-	if (v >= 0)
-		this->_foo = v;
-	else
-		std::cout << "only non-negative numbers are accepted" << std::endl;
-
-	return (0);
+	return ;
 }
