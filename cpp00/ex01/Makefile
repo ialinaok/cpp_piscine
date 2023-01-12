@@ -5,27 +5,22 @@
 #                                                     +:+ +:+         +:+      #
 #    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/01/08 15:33:17 by apielasz          #+#    #+#              #
-#    Updated: 2023/01/12 22:38:09 by apielasz         ###   ########.fr        #
+#    Created: 2023/01/12 17:01:15 by apielasz          #+#    #+#              #
+#    Updated: 2023/01/12 17:10:59 by apielasz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = PhoneBook
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = megaphone.cpp
+SRC = PhoneBook.cpp, main.cpp
 
-# OBJ = $(SRC:.c=.o)
-
-all: $(NAME)
+all:$(NAME)
 
 $(NAME): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $@
 
-# clean:
-# 	rm -f $(OBJ)
-
-fclean:# clean
+fclean:
 	rm -f $(NAME)
 
 re: fclean all
