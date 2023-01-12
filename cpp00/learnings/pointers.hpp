@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 17:04:30 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/11 17:11:39 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/01/12 15:48:18 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ class	Pointers {
 
 	public:
 		int	foo;
+		int	test;
 
 		Pointers(void);
 		~Pointers(void);
