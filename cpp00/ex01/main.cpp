@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:29:01 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/13 19:34:16 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/01/13 23:14:53 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 
 #include <iostream>
 #include <string>
-#include "Contact.hpp"
 #include "PhoneBook.hpp"
 
 # define BLANK "\e[0m"
@@ -30,13 +29,15 @@
 # define WH "\033[0;37m"
 # define D "\033[0m"
 
-int	add_contact(void);
+int	add_contact(Contact *contact, int index);
 
 int	main(void) {
 
 	std::string	command = "START";
 
 	while (command != "EXIT") {
+
+		int	index = 0;
 
 		std::cout << YELL << "Welcome to PhoneBook!" << std::endl << WH;
 		std::cout << "Please, enter one of the following commands:";
@@ -52,16 +53,25 @@ int	main(void) {
 			std::cout << WH << "Please, enter a correct command" << std::endl << ": ";
 			std::cin >> command;
 		}
-		if (command == "ADD")
-			add_contact();
+		if (command == "ADD") {
+
+			Contact	contact;
+			add_contact(&contact, index);
+			index++;
+			if (index == 7)
+				index = 0;
+		}
 	}
 }
 
-int	add_contact(void) {
+// the way things are now, contact will be deleted! bc it will leave the stack frame or whatever you wanna call it
+// oyu need a different way of creating the objects. but, there's no norm, so I could literally just 
+int	add_contact(Contact *contact, int index) {
 
-	Contact	contact;
+	PhoneBook	the_book;
 	std::string	temp;
 
+// *** Getting data *** //
 	std::cout << "Enter first name" << std::endl << ": ";
 	std::cin >> temp;
 	contact.set_first_name(temp);
@@ -71,18 +81,37 @@ int	add_contact(void) {
 	std::cout << "Enter nickname" << std::endl << ": ";
 	std::cin >> temp;
 	contact.set_nickname(temp);
-	std::cout << "Enter phone number" << std::endl << ": ";
-	std::cin >> temp;
+	// *** Checking if there're only digits in input *** //
+	while (42) {
+		
+		int	i;
+
+		std::cout << "Enter phone number (without spaces)" << std::endl << ": ";
+		getline(std::cin >> std::ws, temp);
+		for (i = 0; i < (int) temp.length(); i++) {
+			if (std::isdigit(temp[i]) == 0 || std::isspace(temp[i]) != 0) {
+
+				std::cout << RED << "Error: Please, use only digits while entering the number!" << WH << std::endl;
+				break ;
+			}
+		}
+		if (i == (int) temp.length())
+			break ;
+	}
 	contact.set_phone_number(temp);
 	std::cout << "Enter darkest secret" << std::endl << ": ";
 	getline(std::cin >> std::ws, temp);
 	contact.set_darkest_secret(temp);
 
-	std::cout << "First name: " << contact.get_first_name() << std::endl;
+// *** Printing data ***/
+	std::cout << std::endl << "First name: " << contact.get_first_name() << std::endl;
 	std::cout << "Last name: " << contact.get_last_name() << std::endl;
 	std::cout << "Nickname: " << contact.get_nickname() << std::endl;
 	std::cout << "Phone number: " << contact.get_phone_number() << std::endl;
-	std::cout << "Darkest secret: " << contact.get_darkest_secret() << std::endl;
+	std::cout << "Darkest secret: " << contact.get_darkest_secret() << std::endl << std::endl;
+
+// *** Adding contact to list ***//
+	the_book.add_contact_to_list(&contact, index);
 
 	return (0);
 }
