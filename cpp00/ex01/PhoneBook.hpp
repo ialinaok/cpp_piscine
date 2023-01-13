@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:12:12 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/12 17:14:09 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/01/13 18:53:36 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 class	PhoneBook {
 
 	public:
-		char	arr[8];
-
 		PhoneBook(void);
 		~PhoneBook(void);
 };

@@ -1,29 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   getline_more.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 17:11:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/13 18:58:32 by apielasz         ###   ########.fr       */
+/*   Created: 2023/01/13 19:08:38 by apielasz          #+#    #+#             */
+/*   Updated: 2023/01/13 19:21:55 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
-#include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void) {
+int	main(void) {
+	std::string	s;
 
-	std::cout << "Constructor PhoneBook called" << std::endl;
+	std::cout << "say something: ";
+	std::cin >> s;
+	std::cout << "the string is: " << s << std::endl;
+	std::cout << "say sth more: ";
+	getline(std::cin, s);
+	std::cout << "the string is: " << s << std::endl;
 
-	return ;
-}
-
-PhoneBook::~PhoneBook(void) {
-
-	std::cout << "Destructor PhoneBook called" << std::endl;
-
-	return ;
+	return (0);
 }
