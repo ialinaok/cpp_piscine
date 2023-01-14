@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:29:01 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/13 23:14:53 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/01/14 01:45:51 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@
 # define WH "\033[0;37m"
 # define D "\033[0m"
 
-int	add_contact(Contact *contact, int index);
+int	add_contact(PhoneBook *the_book, int index);
+void	print_PhoneBook(PhoneBook *the_book);
 
 int	main(void) {
 
+	PhoneBook	the_book;
+	int	index = 0;
 	std::string	command = "START";
 
-	while (command != "EXIT") {
-
-		int	index = 0;
+	while (command != "EXIT" && index < 3) {
 
 		std::cout << YELL << "Welcome to PhoneBook!" << std::endl << WH;
 		std::cout << "Please, enter one of the following commands:";
@@ -55,20 +56,31 @@ int	main(void) {
 		}
 		if (command == "ADD") {
 
-			Contact	contact;
-			add_contact(&contact, index);
+			add_contact(&the_book, index);
 			index++;
 			if (index == 7)
 				index = 0;
 		}
 	}
+	print_PhoneBook(&the_book);
+}
+
+void	print_PhoneBook(PhoneBook *the_book) {
+
+	Contact	temp;
+	for (int j = 0; j < 3; j++) {
+
+		temp = the_book->get_contact(j);
+		std::cout << "Index #" << j << " " << temp.get_first_name() << " " << temp.get_last_name() << " ";
+		std::cout << temp.get_nickname() << " " << temp.get_phone_number() << " " << temp.get_darkest_secret() << std::endl;
+	}
 }
 
 // the way things are now, contact will be deleted! bc it will leave the stack frame or whatever you wanna call it
 // oyu need a different way of creating the objects. but, there's no norm, so I could literally just 
-int	add_contact(Contact *contact, int index) {
+int	add_contact(PhoneBook *the_book, int index) {
 
-	PhoneBook	the_book;
+	Contact		contact;
 	std::string	temp;
 
 // *** Getting data *** //
@@ -111,7 +123,7 @@ int	add_contact(Contact *contact, int index) {
 	std::cout << "Darkest secret: " << contact.get_darkest_secret() << std::endl << std::endl;
 
 // *** Adding contact to list ***//
-	the_book.add_contact_to_list(&contact, index);
+	the_book->add_contact_to_list(contact, index);
 
 	return (0);
 }
