@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:12:12 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/14 01:33:50 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/01/14 11:12:23 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	PhoneBook {
 		Contact	get_contact(int index) const;
 
 	private:
-		Contact	_list_of_contacts[8];
+		Contact	_list_of_contacts[8]; //check if you can use just number or if you need to declare a const
 };
 
 #endif
