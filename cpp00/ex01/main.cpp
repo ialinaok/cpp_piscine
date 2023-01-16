@@ -6,13 +6,15 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:29:01 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/14 01:45:51 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/01/15 18:27:23 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // ADD, SEARCH, EXIT are interpreted in the main.
 // I need to then call a function from the member functions accordingly
 // each contact is an instance of a contact class, so this class needs to have required fields
+
+//TODO - check empty fields, though it seems to be working now
 
 #include <iostream>
 #include <string>
@@ -29,8 +31,9 @@
 # define WH "\033[0;37m"
 # define D "\033[0m"
 
-int	add_contact(PhoneBook *the_book, int index);
+int		add_contact(PhoneBook *the_book, int index);
 void	print_PhoneBook(PhoneBook *the_book);
+void	search_contacts(PhoneBook *the_book);
 
 int	main(void) {
 
@@ -38,7 +41,7 @@ int	main(void) {
 	int	index = 0;
 	std::string	command = "START";
 
-	while (command != "EXIT" && index < 3) {
+	while (command != "EXIT") {
 
 		std::cout << YELL << "Welcome to PhoneBook!" << std::endl << WH;
 		std::cout << "Please, enter one of the following commands:";
@@ -51,18 +54,17 @@ int	main(void) {
 			// std::cin.getline(arr, 10);
 		while (command != "ADD" && command != "SEARCH" && command != "EXIT") {
 			
-			std::cout << WH << "Please, enter a correct command" << std::endl << ": ";
+			std::cout << RED << "Please, enter a correct command" << WH << std::endl << ": ";
 			std::cin >> command;
 		}
-		if (command == "ADD") {
-
-			add_contact(&the_book, index);
-			index++;
-			if (index == 7)
+		if (command == "ADD")
+			add_contact(&the_book, index++);
+		else if (command == "SEARCH")
+			search_contacts(&the_book);
+		if (index == 8)
 				index = 0;
-		}
 	}
-	print_PhoneBook(&the_book);
+	// print_PhoneBook(&the_book);
 }
 
 void	print_PhoneBook(PhoneBook *the_book) {
@@ -126,6 +128,20 @@ int	add_contact(PhoneBook *the_book, int index) {
 	the_book->add_contact_to_list(contact, index);
 
 	return (0);
+}
+
+void	search_contacts(PhoneBook *the_book) {
+
+	int	index = 0;
+
+	std::cout << 10 << "Index";
+	std::cout << 10 << "First name";
+	std::cout << 10 << "Last name";
+	std::cout << 10 << "Nickname";
+	while (index < 8) {
+
+		index++;
+	}
 }
 
 // *** why doesn't getline() work after std::cin ? *** //

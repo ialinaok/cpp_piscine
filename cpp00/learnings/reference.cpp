@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   reference.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/12 17:12:12 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/15 17:49:43 by ialinaok         ###   ########.fr       */
+/*   Created: 2023/01/15 17:39:18 by ialinaok          #+#    #+#             */
+/*   Updated: 2023/01/15 17:42:05 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#include <iostream>
+#include <stdio.h>
 
-#include "Contact.hpp"
+int	main(void) {
 
-class	PhoneBook {
+	int	a = 42;
+	int	&b = a;
 
-	public:
-		PhoneBook(void);
-		~PhoneBook(void);
+	printf("this is address of a: %p\n", &a);
+	printf("this is address of b: %p\n", &b);
 
-		int		add_contact_to_list(Contact new_contact, int index);
-		Contact	get_contact(int index) const;
-
-	private:
-		Contact	_list_of_contacts[8]; //check if you can use just number or if you need to declare a const
-};
-
-#endif
+	// it's the same address
+	return (0);
+}
