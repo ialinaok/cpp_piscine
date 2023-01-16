@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 18:44:03 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/13 18:59:52 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:52:04 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 
 Contact::Contact(void) {
 
-	std::cout << "Constructor Contact called" << std::endl;
+	// std::cout << "Constructor Contact called" << std::endl;
 
 	return ;
 }
 
 Contact::~Contact(void) {
 
-	std::cout << "Destructor Contact called" << std::endl;
+	// std::cout << "Destructor Contact called" << std::endl;
 
 	return ;
 }

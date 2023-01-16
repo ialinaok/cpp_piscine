@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:29:01 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/15 18:27:23 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/01/16 18:19:18 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 #include "PhoneBook.hpp"
 
 # define BLANK "\e[0m"
@@ -43,7 +44,7 @@ int	main(void) {
 
 	while (command != "EXIT") {
 
-		std::cout << YELL << "Welcome to PhoneBook!" << std::endl << WH;
+		std::cout << std::endl << YELL << "Welcome to PhoneBook!" << std::endl << WH;
 		std::cout << "Please, enter one of the following commands:";
 		std::cout << GREEN << "  [ADD]  " << BL << "[SEARCH]  " << RED << "[EXIT]" << std::endl << WH;
 		std::cout << ": ";
@@ -133,15 +134,57 @@ int	add_contact(PhoneBook *the_book, int index) {
 void	search_contacts(PhoneBook *the_book) {
 
 	int	index = 0;
+	char	i[10];
 
-	std::cout << 10 << "Index";
-	std::cout << 10 << "First name";
-	std::cout << 10 << "Last name";
-	std::cout << 10 << "Nickname";
+	std::cout << std::setw(10) << std::right << "Index" << "|";
+	std::cout << std::setw(10) << std::right << "First name" << "|";
+	std::cout << std::setw(10) << std::right << "Last name" << "|";
+	std::cout << std::setw(10) << std::right << "Nickname" << std::endl;
 	while (index < 8) {
+
+		std::cout << std::setw(10) << std::setfill(' ') << index << "|";
+		if (the_book->get_contact(index).get_first_name().length() >= 10)
+			std::cout << std::setw(9) << std::setfill(' ') << the_book->get_contact(index).get_first_name().substr(0, 9) << ".|";
+		else
+			std::cout << std::setw(10) << std::setfill(' ') << the_book->get_contact(index).get_first_name() << "|";
+		if (the_book->get_contact(index).get_last_name().length() >= 10)
+			std::cout << std::setw(9) << std::setfill('.') << the_book->get_contact(index).get_last_name().substr(0, 9) << ".|";
+		else
+			std::cout << std::setw(10) << std::setfill(' ') << the_book->get_contact(index).get_last_name() << "|";
+		if (the_book->get_contact(index).get_nickname().length() >= 10)
+			std::cout << std::setw(9) << std::setfill(' ') << the_book->get_contact(index).get_nickname().substr(0, 9) << "." << std::endl;
+		else
+			std::cout << std::setw(10) << std::setfill(' ') << the_book->get_contact(index).get_nickname() << std::endl;
 
 		index++;
 	}
+	std::cout << std::endl << YELL << "Please, choose a contact to display [index #0 - #7]" << WH << std::endl;
+	std::cout << ": ";
+	std::cin >> i;
+	index = std::atoi(i);
+	while (index < 0 || index > 7) {
+		
+		std::cout << RED << "Please, choose index from #0 to #7" << WH << std::endl << ": ";
+		std::cin >> i;
+		index = std::atoi(i);
+	}
+	while (the_book->get_contact(index).get_first_name() == "") {
+
+		std::cout << RED << "There's no contact at chosen index. Please, choose another index" << WH << std::endl << ": ";
+		std::cin >> i;
+		index = std::atoi(i);
+		while (index < 0 || index > 7) {
+		
+			std::cout << RED << "Please, choose index from #0 to #7" << WH << std::endl << ": ";
+			std::cin >> i;
+			index = std::atoi(i);
+	}
+	}
+	std::cout << std::endl << the_book->get_contact(index).get_first_name() << std::endl;
+	std::cout << the_book->get_contact(index).get_last_name() << std::endl;
+	std::cout << the_book->get_contact(index).get_nickname() << std::endl;
+	std::cout << the_book->get_contact(index).get_phone_number() << std::endl;
+	std::cout << the_book->get_contact(index).get_darkest_secret() << std::endl;
 }
 
 // *** why doesn't getline() work after std::cin ? *** //

@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/15 18:28:09 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/01/15 20:50:27 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:39:58 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	main(void) {
 
 	int	index = 0;
 	std::string	fname = "Alina";
-	std::string	lname = "Pielaszkiewicz";
+	std::string	lname = "Pielaszki";
 	std::string	nname = "linka";
 
 	std::cout << std::setw(10) << std::right << "Index" << "|";
@@ -28,15 +28,15 @@ int	main(void) {
 
 		std::cout << std::setw(10) << std::setfill(' ') << index << "|";
 		if (fname.length() >=10)
-			std::cout << std::setw(10) << std::setfill(' ') << fname.substr(0, 9) << ".|";
+			std::cout << std::setw(9) << std::setfill(' ') << fname.substr(0, 9) << ".|";
 		else
 			std::cout << std::setw(10) << std::setfill(' ') << fname << "|";
 		if (lname.length() >= 10)
-			std::cout << std::setw(10) << std::setfill(' ') << lname.substr(0, 9) << ".|";
+			std::cout << std::setw(9) << std::setfill('.') << lname.substr(0, 9) << ".|";
 		else
 			std::cout << std::setw(10) << std::setfill(' ') << lname << "|";
 		if (nname.length() >= 10)
-			std::cout << std::setw(10) << std::setfill(' ') << nname.substr(0, 9) << "." << std::endl;
+			std::cout << std::setw(9) << std::setfill(' ') << nname.substr(0, 9) << "." << std::endl;
 		else
 			std::cout << std::setw(10) << std::setfill(' ') << nname << std::endl;
 
@@ -45,3 +45,6 @@ int	main(void) {
 }
 
 // Last name|
+// First name
+//  Pielaszki.|
+//Pielaszkie.

@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/12 17:11:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/14 01:33:20 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/01/16 17:51:50 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 
 PhoneBook::PhoneBook(void) {
 
-	std::cout << "Constructor PhoneBook called" << std::endl;
+	// std::cout << "Constructor PhoneBook called" << std::endl;
 
 	return ;
 }
 
 PhoneBook::~PhoneBook(void) {
 
-	std::cout << "Destructor PhoneBook called" << std::endl;
+	// std::cout << "Destructor PhoneBook called" << std::endl;
 
 	return ;
 }
