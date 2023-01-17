@@ -1,76 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Account.cpp                                        :+:      :+:    :+:   */
+/*   try.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 17:01:36 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/17 18:43:12 by apielasz         ###   ########.fr       */
+/*   Created: 2023/01/17 17:11:02 by apielasz          #+#    #+#             */
+/*   Updated: 2023/01/17 17:18:57 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Account.hpp"
-#include <vector>
-#include <algorithm>
-#include <functional>
-#include "Account.hpp"
-
-#include <functional>
-#include <string>
-#include <iterator>
 #include <iostream>
 #include <ctime>
 
-Account::Account(int initial_deposit) { //tbd
-
-	std::cout << "Constructor Account called" << std::endl;
-
-	return ;
-}
-
-Account::Account(int const amounts[], )
-
-Account::~Account(void) {
-
-	std::cout << "Destructor Account called" << std::endl;
-
-	return ;
-}
-
-int	Account::getNbAccounts(void) {
-
-	return (_nbAccounts);
-}
-
-int	Account::getTotalAmount(void) {
-
-	return (_totalAmount);
-}
-
-int	Account::getNbDeposits(void) {
-
-	return (_totalNbDeposits);
-}
-
-int	Account::getNbWithdrawals(void) {
-
-	return (_totalNbWithdrawals);
-}
-
-void	Account::displayAccountsInfos(void) { //tbd
-
-	t::_displayTimestamp();
-
-	for (int i = 0; i < t::getNbAccounts(); i++) {
-
-		std::cout << "index:" << i << "amount:" << t::getTotalAmount();
-		std::cout << 
-		
-	}
-}
-
-void	Account::_displayTimestamp(void) {
+int main(void) {
 
 	time_t	now = time(0);
 
@@ -97,8 +40,7 @@ void	Account::_displayTimestamp(void) {
 		std::cout << "0" << ltm->tm_sec;
 	else
 		std::cout << ltm->tm_sec;
-	std::cout << "]" << "	";
+	std::cout << "]" << std::endl;
 
-	return ;
+	return (0);
 }
-
