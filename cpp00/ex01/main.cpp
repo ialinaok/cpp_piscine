@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:29:01 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/16 18:19:18 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/01/18 00:03:37 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -172,7 +172,14 @@ void	search_contacts(PhoneBook *the_book) {
 
 		std::cout << RED << "There's no contact at chosen index. Please, choose another index" << WH << std::endl << ": ";
 		std::cin >> i;
-		index = std::atoi(i);
+		try
+		{
+			index = std::atoi(i);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
 		while (index < 0 || index > 7) {
 		
 			std::cout << RED << "Please, choose index from #0 to #7" << WH << std::endl << ": ";

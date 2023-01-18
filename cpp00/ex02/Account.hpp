@@ -29,6 +29,8 @@ public:
 	static int	getNbWithdrawals( void );
 	static void	displayAccountsInfos( void );
 
+// *** le constructore overloade *** //
+	// Account(int const amounts[], size_t amounts_size);
 	Account( int initial_deposit );
 	~Account( void );
 
