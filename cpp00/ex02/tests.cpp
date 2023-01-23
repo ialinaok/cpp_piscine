@@ -12,11 +12,6 @@
 #include <functional>
 #include "Account.hpp"
 
-#include <functional>
-#include <string>
-#include <iterator>
-#include <iostream>
-
 
 int		main( void ) {
 
