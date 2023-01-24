@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 18:20:15 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/01/23 19:08:39 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/01/24 00:59:59 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,20 @@ int	main() {
 	f_annouce = &Zombie::Announce;
 
 	std::cout << RED << "Calling Announce()" << WH << std::endl;
-	(zombie2->*f_annouce)();
+	(zombie2->*f_annouce)(); //both
+	zombie2->Announce();     //work
 
 	std::cout << "----------------------------------------" << std::endl;
 // *** ZOMBIE 3 *** //
 	std::cout << YELL << "Third Zombie created on heap with newZombie()" << WH << std::endl;
-	Zombie	*zombie3 = zombie1.newZombie(zombie3name);
+	Zombie	*zombie3 = newZombie(zombie3name);
 	std::cout << RED << "Calling Announce()" << WH << std::endl;
 	(zombie3->*f_annouce)();
 
 	std::cout << "----------------------------------------" << std::endl;
 // *** ZOMBIE 4 *** //
 	std::cout << GREEN << "Fourth Zombie created on stack with randomChump()" << WH << std::endl;
-	zombie1.randomChump(zombie4name);
-
-	std::cout << "----------------------------------------" << std::endl;
+	randomChump(zombie4name);
 
 	delete zombie2;
 	delete zombie3;

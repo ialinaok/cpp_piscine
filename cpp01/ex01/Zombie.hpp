@@ -1,20 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 18:14:47 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/01/24 00:58:24 by ialinaok         ###   ########.fr       */
+/*   Created: 2023/01/24 00:25:29 by ialinaok          #+#    #+#             */
+/*   Updated: 2023/01/24 00:55:44 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef ZOMBIE_H
+# define ZOMBIE_H
 
-Zombie	*newZombie(std::string name) {
+#include <iostream>
+#include <string>
+#include "colors.hpp"
 
-	Zombie	*zombie = new Zombie(name);
+class Zombie {
 
-	return (zombie);
-}
+	public:
+		void	Announce(void);
+		void	name_the_zombie(std::string name);
+		Zombie(void);
+		~Zombie(void);
+
+	private:
+		std::string	_name;
+		
+};
+
+Zombie	*zombieHorde(int N, std::string name);
+
+#endif

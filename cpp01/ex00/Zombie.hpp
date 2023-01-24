@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:31:40 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/01/23 18:51:40 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/01/24 00:58:06 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ class Zombie {
 
 	public:
 		void	Announce(void);
-		Zombie	*newZombie(std::string name);
-		void	randomChump(std::string name);
 		Zombie(std::string name);
 		~Zombie(void);
 
@@ -30,5 +28,8 @@ class Zombie {
 		std::string	_name;
 		
 };
+
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);
 
 #endif

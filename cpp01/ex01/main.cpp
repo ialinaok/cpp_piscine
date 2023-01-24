@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 18:14:47 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/01/24 00:58:24 by ialinaok         ###   ########.fr       */
+/*   Created: 2023/01/24 00:37:31 by ialinaok          #+#    #+#             */
+/*   Updated: 2023/01/24 01:00:42 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie	*newZombie(std::string name) {
+int	main() {
 
-	Zombie	*zombie = new Zombie(name);
+	std::string	name = "Max";
+	int			horde_count = 12;
+	Zombie		*horde;
 
-	return (zombie);
+	std::cout << RED << "Creating a horde of " << horde_count << WH << std::endl;
+	horde = zombieHorde(horde_count, name);
+
+	for (int i = 0; i < 12; i++)
+		horde[i].Announce();
+
+	delete [] horde;
 }
