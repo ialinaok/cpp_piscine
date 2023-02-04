@@ -1,0 +1,10 @@
+input validation checking:
+
+./SedIsForLosers
+./SedIsForLosers bullshit_name s s
+./SedIsForLosers more than three arguments
+
+checking if program works:
+./SedIsForLosers champions champions "42 students"
+./SedIsForLosers empty_file s1 s2
+./SedIsForLosers champions no_occurence_of_me unicorns

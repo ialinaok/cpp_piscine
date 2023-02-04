@@ -1,0 +1,42 @@
+1. open the file with stream
+2. read file contents - getline
+3. scan getline return for the string we want to replace using find()
+
+now is the tricky part, bc you cannot use replace()
+
+4. copy getline return string until the found beginning of the to_replace string into buffer
+using copy() function
+5. put it in the outfile
+6. put to_be_replaced_with in the outfile
+7. get the end of the string from getline return (...) 
+
+ok, this seems compilcated. what if we try with swap?
+
+4. in the loop, set a var to be equal to argv[3], aka the string to_be_replaced_with
+5. ugh I cannot specify the length/position of what to swap. so I still need to play with beginning and end. fuck that
+
+erase and replace approach
+
+4. erase the found string with erase()
+5. insert the to_be_replaced_with into the position where the string was erased
+6. push string into outfile
+7. done - ok, this works for a string wohoo
+
+now we need to set it up in a loop:
+getline returns
+
+edge case - what if there's more that one occurence in the line?
+also set it up in a loop. insert/delete one string, and then check again.
+only when there's no string found in buffer, break the loop and append to outfile
+and move to another line
+
+ok getline is a bitch, it doesn't remember where it stopped reading
+I don't want to write a buggy one with predefined line value 🤡
+maybe instead I can just get char by char and put it in the buff and do so until nl?
+
+AAAA there's getline for std::strings............ heaven
+
+ok, let's test for edge cases:
+- file doesn't exist
+- file empty
+- file with no occurence of string
