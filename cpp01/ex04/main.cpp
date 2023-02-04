@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:49:48 by apielasz          #+#    #+#             */
-/*   Updated: 2023/01/24 17:37:47 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/01 17:54:12 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,15 @@ int	main(int argc, char **argv) {
 
 		return (2);
 	}
+	std::string	out_filename = argv[1];
+	out_filename += ".replace";
+	std::cout << YELL << "out_filename: " << out_filename << WH << std::endl;
+
+
+	
 	// *** TEST IF FILE EXISTS *** //
-	std::ifstream	ifs1("colors.hpp");
-	std::ifstream	ifs2("no_exist");
-	std::cout << GREEN << "the existing one's .good()" << WH << ifs1.good() << std::endl;
-	std::cout << RED << "the no exist one's .good()" << WH << ifs2.good() << std::endl;
+	// std::ifstream	ifs1("colors.hpp");
+	// std::ifstream	ifs2("no_exist");
+	// std::cout << GREEN << "the existing one's .good()" << WH << ifs1.good() << std::endl;
+	// std::cout << RED << "the no exist one's .good()" << WH << ifs2.good() << std::endl;
 }
