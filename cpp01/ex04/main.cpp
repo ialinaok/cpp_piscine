@@ -6,9 +6,21 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:49:48 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/04 17:22:23 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/04 17:25:53 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+//*** TESTS TO COPY IN CL ***//
+/* --- input validation checking:
+./SedIsForLosers
+./SedIsForLosers bullshit_name s s
+./SedIsForLosers more than three arguments
+
+   --- checking if program works:
+./SedIsForLosers champions champions "42 students"
+./SedIsForLosers empty_file s1 s2
+./SedIsForLosers champions no_occurence_of_me unicorns
+*/
 
 #include "sed_is_for_losers.hpp"
 
