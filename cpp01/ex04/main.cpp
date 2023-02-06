@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 16:49:48 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/04 17:25:53 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:04:24 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,18 @@ int	main(int argc, char **argv) {
 
 		return (1);
 	}
+	if (argv[2][0] == '\0' || argv[3][0] == '\0') {
+		
+		std::cout << RED << "Please, don't give empty strings" << WH << std::endl;
+		return (2);
+	}
 
 	std::ifstream	ifs(argv[1]);
 	if (ifs.good() == 0) {
 
 		std::cout << RED << "File doesn't exist. Please provide an existing filename" << WH << std::endl;
 
-		return (2);
+		return (3);
 	}
 
 	std::string	to_replace = argv[2];
