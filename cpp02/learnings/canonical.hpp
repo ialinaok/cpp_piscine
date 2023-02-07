@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operator_overload.hpp                              :+:      :+:    :+:   */
+/*   canonical.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 13:21:13 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/07 19:57:12 by apielasz         ###   ########.fr       */
+/*   Created: 2023/02/07 20:13:24 by apielasz          #+#    #+#             */
+/*   Updated: 2023/02/07 20:17:08 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATOR_OVERLOAD_H
-# define OPERATOR_OVERLOAD_H
+#ifndef CANONICAL_H
+# define CANONICAL_H
 
 #include <iostream>
 
-class	Integer {
+class Canonical {
 
 	public:
-		Integer(int const n);
-		~Integer();
+		Canonical();
+		Canonical(int const n);
+		Canonical(Canonical const& src);
+		~Canonical();
 
-		int	getValue(void) const;
+		Canonical&	operator=(Canonical const& rhs);
 
-		Integer&	operator=(Integer const& rhs);
-		Integer		operator+(Integer const& rhs) const;
+		int	getFoo(void) const;
 
 	private:
-		int	_n;
+		int	_foo;
 };
 
-std::ostream&	operator<<(std::ostream& o, Integer const& rhs);
+std::ostream&	operator<<(std::ostream& o, Canonical const& i);
 
 #endif

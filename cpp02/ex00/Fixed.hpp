@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operator_overload.hpp                              :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 13:21:13 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/07 19:57:12 by apielasz         ###   ########.fr       */
+/*   Created: 2023/02/07 21:30:09 by apielasz          #+#    #+#             */
+/*   Updated: 2023/02/07 21:37:14 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef OPERATOR_OVERLOAD_H
-# define OPERATOR_OVERLOAD_H
+#ifndef FIXED_H
+# define FIXED_H
 
 #include <iostream>
 
-class	Integer {
+class	Fixed {
 
 	public:
-		Integer(int const n);
-		~Integer();
+		Fixed();
+		Fixed(Fixed const& src);
+		~Fixed();
+		Fixed&	operator=(Fixed const& rhs);
 
-		int	getValue(void) const;
-
-		Integer&	operator=(Integer const& rhs);
-		Integer		operator+(Integer const& rhs) const;
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
 
 	private:
-		int	_n;
+		int					_fix_point;
+		static const int	_frac_bits;
 };
-
-std::ostream&	operator<<(std::ostream& o, Integer const& rhs);
 
 #endif
