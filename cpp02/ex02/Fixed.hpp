@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 21:30:09 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/09 16:15:46 by apielasz         ###   ########.fr       */
+/*   Created: 2023/02/09 19:59:08 by apielasz          #+#    #+#             */
+/*   Updated: 2023/02/09 20:58:21 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,44 @@
 # define FIXED_H
 
 #include <iostream>
+#include <cmath>
 
 class	Fixed {
 
 	public:
 		Fixed();
+		Fixed(const int n);
+		Fixed(const float f);
 		~Fixed();
 		Fixed(Fixed const& src);
+
 		Fixed&	operator=(Fixed const& rhs);
+		bool	operator>(Fixed const& rhs) const;
+		bool	operator<(Fixed const& rhs) const;
+		bool	operator>=(Fixed const& rhs) const;
+		bool	operator<=(Fixed const& rhs) const;
+		bool	operator==(Fixed const& rhs) const;
+		bool	operator!=(Fixed const& rhs) const;
+		Fixed	operator+(Fixed const& rhs) const;
+		Fixed	operator-(Fixed const& rhs) const;
+		Fixed	operator*(Fixed const& rhs) const;
+		Fixed	operator/(Fixed const& rhs) const;
+		Fixed&	operator++(void);
+		Fixed&	operator--(void);
+		Fixed	operator++(int);
+		Fixed	operator--(int);
 
 		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
+		float	toFloat(void) const;
+		int		toInt(void) const;
 
 	private:
 		int					_fixed_point;
 		static const int	_frac_bits;
 };
+
+std::ostream&	operator<<(std::ostream& o, Fixed const& rhs);
 
 // *** COLORS ***//
 # define BLANK "\e[0m"
