@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 19:07:09 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/10 19:10:12 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/12 15:59:57 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool	Fixed::operator>(Fixed const& rhs) const {
 
 bool	Fixed::operator<(Fixed const& rhs) const {
 
-	return (this->_frac_bits < rhs.getRawBits());
+	return (this->_fixed_point < rhs.getRawBits());
 }
 
 bool	Fixed::operator>=(Fixed const& rhs) const {
