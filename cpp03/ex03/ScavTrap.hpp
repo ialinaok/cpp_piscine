@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:20 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 15:09:10 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:35:59 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include "ClapTrap.hpp"
 #include <string>
 
-class	ScavTrap : public ClapTrap {
+class	ScavTrap : virtual public ClapTrap {
 
 	public:
 		ScavTrap();

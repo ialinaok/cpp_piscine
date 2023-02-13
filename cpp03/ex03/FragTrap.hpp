@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:28:25 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 17:33:53 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 19:35:51 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "ClapTrap.hpp"
 
-class	FragTrap : public ClapTrap {
+class	FragTrap : virtual public ClapTrap {
 
 	public:
 		FragTrap();

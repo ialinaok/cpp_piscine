@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:31:18 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 17:50:42 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 20:21:59 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ FragTrap&	FragTrap::operator=(FragTrap const& rhs) {
 
 void	FragTrap::highFivesGuys(void) {
 
-	std::cout << BLA << this->_name << " wants to get a high five! 💃" << std::endl;
+	std::cout << BLA << this->_name << " wants to get a high five! 💃" << D << std::endl;
 }
