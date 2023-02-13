@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:19:30 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/12 20:08:01 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:17:48 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <string>
 #include <iostream>
+#include <iomanip>
 
 class	ClapTrap {
 
@@ -28,6 +29,8 @@ class	ClapTrap {
 		void	attack(const std::string& target);
 		void	takeDamage(unsigned int amount);
 		void	beRepaired(unsigned int amount);
+
+		void	status(void) const;
 
 	private:
 		std::string		_name;

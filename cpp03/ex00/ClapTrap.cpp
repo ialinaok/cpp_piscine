@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:30:39 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/12 20:11:39 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:59:48 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 ClapTrap::ClapTrap() : _name((std::string)"Anonym"), _hp(10), _energy(10), _attack_damage(0) {
 
-	std::cout << "ClapTrap default constructor called" << std::endl;
+	std::cout << "ClapTrap default constructor called for " << this->_name << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _energy(10), _attack_damage(0) {
 
-	std::cout << "ClapTrap parametric constructor called" << std::endl;
+	std::cout << "ClapTrap parametric constructor called for " << this->_name << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
@@ -36,8 +36,13 @@ ClapTrap::ClapTrap(ClapTrap const& src) {
 ClapTrap&	ClapTrap::operator=(ClapTrap const& rhs) {
 
 	std::cout << "ClapTrap copy assignment operator called" << std::endl;
-	if (this != &rhs)
+	if (this != &rhs) {
+
 		this->_name = rhs._name;
+		this->_hp = rhs._hp;
+		this->_energy = rhs._energy;
+		this->_attack_damage = rhs._attack_damage;
+	}
 	return (*this);
 }
 
@@ -45,41 +50,50 @@ void	ClapTrap::attack(const std::string& target) {
 
 	if (this->_energy > 0 && this->_hp > 0) {
 
-		std::cout << "ClapTrap " << this->_name << " attacks " << target;
-		std::cout << " causing " << this->_attack_damage << " points of damage!" << std::endl;
+		std::cout << RED << this->_name << " attacks " << target;
+		std::cout << " causing " << this->_attack_damage << " points of damage!" << WH << std::endl;
 		this->_energy--;
 	}
 	else
-		std::cout << "ClapTrap " << this->_name << " has no energy left to attack!" << std::endl;
+		std::cout << RED << this->_name << " has no energy left to attack!" << WH << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
 
 	int	new_hp_value = this->_hp - amount;
 
-	if (this->_hp == 0) {
+	if (this->_hp == 0 || this->_energy == 0) {
 		
-		std::cout << "Give " << this->_name << " a break, they are already done!" << std::endl;
+		std::cout << CY << "Give " << this->_name << " a break, they are already done!" << WH << std::endl;
 		return ;
 	}
 	if (new_hp_value < 0) {
 
 		this->_hp = 0;
-		std::cout << this->_name << " got destroyed by this devastating attack!" << std::endl;
+		std::cout << CY << this->_name << " got destroyed by this devastating attack!" << WH << std::endl;
 		return ;
 	}
 	this->_hp = new_hp_value;
-	std::cout << "ClapTrap " << this->_name << " takes damage of " << amount << " points!" << std::endl;
+	std::cout << CY <<  this->_name << " takes damage of " << amount << " points!" << WH << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 
 	if (this->_energy > 0 && this->_hp > 0) {
 
-		std::cout << "ClapTrap " << this->_name << " repairs itself with " << amount << " points!" << std::endl;
+		std::cout << GREEN << this->_name << " repairs themselves with " << amount << " points!" << WH << std::endl;
 		this->_hp += amount;
 		this->_energy--;
 	}
 	else
-		std::cout << "ClapTrap " << this->_name << " has no energy to repair!" << std::endl;
+		std::cout << GREEN << this->_name << " has no energy to repair!" << WH << std::endl;
+}
+
+void	ClapTrap::status(void) const {
+
+	std::cout << std::left << std::setw(10) << this->_name;
+	std::cout << std::left << std::setw(10) << this->_hp;
+	std::cout << std::left << std::setw(10) << this->_energy;
+	std::cout << std::left << std::setw(10) << this->_attack_damage<< std::endl;
+	std::cout << BLA << "---------------------------------------" << WH << std::endl;
 }
