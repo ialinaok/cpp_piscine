@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 19:59:40 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 14:46:59 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:46:07 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,35 +15,35 @@
 int	main() {
 
 	ClapTrap	clappy;
-	ClapTrap	Max("Max");
+	ClapTrap	Chloe("Chloe");
 	ClapTrap	Monika("Monika");
-	ClapTrap	secondMax;
+	ClapTrap	secondChloe;
 
-	std::cout << YELL << "Third Max decided he wants to be like the first one!" << WH << std::endl;
-	secondMax = Max;
+	std::cout << YELL << "Third Chloe decided she wants to be like the first one!" << WH << std::endl;
+	secondChloe = Chloe;
 	
 	print_table();
 	clappy.status();
-	Max.status();
+	Chloe.status();
 	Monika.status();
-	secondMax.status();
+	secondChloe.status();
 
 	std::cout << YELL << "The game begins! " << WH << std::endl;
 	clappy.attack("Jeff");
-	Max.takeDamage(2);
+	Chloe.takeDamage(2);
 	Monika.beRepaired(23);
-	secondMax.attack("Jeff");
-	secondMax.takeDamage(42);
+	secondChloe.attack("Jeff");
+	secondChloe.takeDamage(42);
 
 	print_table();
 	clappy.status();
-	Max.status();
+	Chloe.status();
 	Monika.status();
-	secondMax.status();
+	secondChloe.status();
 
-	secondMax.beRepaired(10);
+	secondChloe.beRepaired(10);
 	Monika.attack("Jeff");
-	Max.attack("Jeff");
+	Chloe.attack("Jeff");
 	Monika.beRepaired(14);
 	Monika.takeDamage(2);
 	Monika.beRepaired(3);
@@ -53,7 +53,7 @@ int	main() {
 
 	print_table();
 	clappy.status();
-	Max.status();
+	Chloe.status();
 	Monika.status();
-	secondMax.status();
+	secondChloe.status();
 }

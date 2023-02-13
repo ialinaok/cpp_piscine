@@ -5,39 +5,41 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 15:21:48 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 17:36:58 by apielasz         ###   ########.fr       */
+/*   Created: 2023/02/13 17:36:12 by apielasz          #+#    #+#             */
+/*   Updated: 2023/02/13 17:51:17 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int	main() {
 
 	std::cout << BLU;
-	ClapTrap	Claudia("Claudia");
+	ClapTrap	Chiara("Chiara");
 	std::cout << CY;
-	ScavTrap	Selma("Selma");
+	ScavTrap	Sydney("Sydney");
+	std::cout << PU;
+	FragTrap	Francess("Francess");
 
 	print_table();
-	Claudia.status();
-	Selma.status();
+	Chiara.status();
+	Sydney.status();
+	Francess.status();
 
 	std::cout << YELL << "The game begins! " << WH << std::endl;
-	Claudia.attack("Steve");
-	Claudia.beRepaired(14);
-	Claudia.takeDamage(3);
-	Selma.takeDamage(54);
-	Selma.attack("Steve");
-	Selma.takeDamage(42);
-	Selma.guardGate();
-	Selma.beRepaired(20);
-	Claudia.attack("Steve");
-	Selma.takeDamage(10000);
-	Selma.beRepaired(23);
+	Chiara.attack("Kurtis");
+	Sydney.beRepaired(4);
+	Sydney.attack("Kurtis");
+	Francess.attack("Kurtis");
+	Francess.beRepaired(12);
+	Francess.takeDamage(123);
+	Sydney.takeDamage(321);
+	Francess.highFivesGuys();
 
 	print_table();
-	Claudia.status();
-	Selma.status();
+	Chiara.status();
+	Sydney.status();
+	Francess.status();
 }
