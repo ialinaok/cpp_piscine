@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:30:39 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 12:13:53 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:27:53 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	ClapTrap::attack(const std::string& target) {
 	if (this->_energy > 0 && this->_hp > 0) {
 
 		std::cout << RED << this->_name << " attacks " << target;
-		std::cout << " causing " << this->_attack_damage << " points of damage!" << WH << std::endl;
+		std::cout << " causing " << this->_attack_damage << " points of damage! 💥" << WH << std::endl;
 		this->_energy--;
 	}
 	else
-		std::cout << RED << this->_name << " has no energy left to attack!" << WH << std::endl;
+		std::cout << RED << this->_name << " has no energy left to attack! 🥴" << WH << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
@@ -64,42 +64,45 @@ void	ClapTrap::takeDamage(unsigned int amount) {
 
 	if (this->_hp == 0 || this->_energy == 0) {
 		
-		std::cout << CY << "Give " << this->_name << " a break, they are already done!" << WH << std::endl;
+		std::cout << CY << "Give " << this->_name << " a break, they are already done! ❌" << WH << std::endl;
 		return ;
 	}
 	if (new_hp_value < 0) {
 
 		this->_hp = 0;
-		std::cout << CY << this->_name << " got destroyed by this devastating attack!" << WH << std::endl;
+		std::cout << CY << this->_name << " got destroyed by this devastating attack! 💀" << WH << std::endl;
 		return ;
 	}
 	this->_hp = new_hp_value;
-	std::cout << CY <<  this->_name << " takes damage of " << amount << " points!" << WH << std::endl;
+	std::cout << CY <<  this->_name << " takes damage of " << amount << " points! 👾" << WH << std::endl;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
 
 	if (this->_energy > 0 && this->_hp > 0) {
 
-		std::cout << GREEN << this->_name << " repairs themselves with " << amount << " points!" << WH << std::endl;
+		std::cout << GREEN << this->_name << " repairs themselves with " << amount << " points! 🍄" << WH << std::endl;
 		this->_hp += amount;
 		this->_energy--;
 	}
 	else
-		std::cout << GREEN << this->_name << " has no energy to repair!" << WH << std::endl;
+		std::cout << GREEN << this->_name << " has no energy to repair! 🤕" << WH << std::endl;
 }
 
 void	ClapTrap::status(void) const {
 
 	std::cout << std::left << std::setw(10) << this->_name;
-	std::cout << std::left << std::setw(10) << this->_hp;
-	std::cout << std::left << std::setw(10) << this->_energy;
+	this->_hp == 0 ? std::cout << RED << std::left << std::setw(10) << this->_hp << WH :
+		std::cout << std::left << std::setw(10) << this->_hp;
+	this->_energy == 0 ? std::cout << RED << std::left << std::setw(10) << this->_energy << WH:
+		std::cout << std::left << std::setw(10) << this->_energy;
 	std::cout << std::left << std::setw(10) << this->_attack_damage<< std::endl;
 	std::cout << BLA << "---------------------------------------" << WH << std::endl;
 }
 
 void	print_table(void) {
 
+	std::cout << YELL << "Currently in the game are:" << WH << std::endl;
 	std::cout << BLA << "---------------------------------------" << std::endl;
 	std::cout << BLA << std::left << std::setw(10) << "NAME";
 	std::cout << std::left << std::setw(10) << "HP";

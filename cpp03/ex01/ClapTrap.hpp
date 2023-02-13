@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:19:30 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 12:13:16 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:07:56 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	ClapTrap {
 
 		void	status(void) const;
 
-	private:
+	protected:
 		std::string		_name;
 		unsigned int	_hp;				//10
 		unsigned int	_energy;			//10

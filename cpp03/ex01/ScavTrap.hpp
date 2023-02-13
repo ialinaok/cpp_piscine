@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 12:08:20 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 12:12:36 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:09:10 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 # define SCAV_TRAP_H
 
 #include "ClapTrap.hpp"
+#include <string>
 
 class	ScavTrap : public ClapTrap {
 
 	public:
 		ScavTrap();
-		ScavTrap(ScavTrap const& src);
+		ScavTrap(std::string name);
 		~ScavTrap();
+		ScavTrap(ScavTrap const& src);
+		ScavTrap&	operator=(ScavTrap const& rhs);
 
-		void	guardGate();
+		void	guardGate(void);
+		void	attack(const std::string& target);
 };
 
 #endif
