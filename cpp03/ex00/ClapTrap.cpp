@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:30:39 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 11:59:48 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:13:53 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,4 +96,14 @@ void	ClapTrap::status(void) const {
 	std::cout << std::left << std::setw(10) << this->_energy;
 	std::cout << std::left << std::setw(10) << this->_attack_damage<< std::endl;
 	std::cout << BLA << "---------------------------------------" << WH << std::endl;
+}
+
+void	print_table(void) {
+
+	std::cout << BLA << "---------------------------------------" << std::endl;
+	std::cout << BLA << std::left << std::setw(10) << "NAME";
+	std::cout << std::left << std::setw(10) << "HP";
+	std::cout << std::left << std::setw(10) << "ENERGY";
+	std::cout << std::left << std::setw(10) << "ATTACK" << std::endl;
+	std::cout << "---------------------------------------" << WH << std::endl;
 }

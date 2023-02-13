@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 18:19:30 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 11:17:48 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:13:59 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ class	ClapTrap {
 		unsigned int	_energy;			//10
 		unsigned int	_attack_damage;		//0
 };
+
+void	print_table(void);
 
 // *** COLORS ***//
 # define BLANK "\e[0m"
