@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:23:49 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/14 16:53:14 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:30:34 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ Dog::Dog() {
 	this->_type = "Dog";
 }
 
-Dog::Dog(Dog const& src) {
+Dog::Dog(Dog const& src) : Animal::Animal() {
 
 	std::cout << "Dog copy constructor called" << std::endl;
 	*this = src;
