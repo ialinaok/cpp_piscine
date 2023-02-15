@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 17:31:18 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 20:21:59 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:25:58 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ FragTrap::~FragTrap() {
 	std::cout << "FragTrap destructor called" << std::endl;
 }
 
-FragTrap::FragTrap(FragTrap const& src) {
+FragTrap::FragTrap(FragTrap const& src)  : ClapTrap::ClapTrap(src) {
 
 	std::cout << "FragTrap copy constructor called" << std::endl;
 	*this = src;

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 19:52:47 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 20:21:37 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:27:32 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ DiamondTrap::~DiamondTrap() {
 	std::cout << "DiamondTrap destructor called" << std::endl;
 }
 
-DiamondTrap::DiamondTrap(DiamondTrap const& src) {
+DiamondTrap::DiamondTrap(DiamondTrap const& src) : ClapTrap::ClapTrap(src), ScavTrap::ScavTrap(src), FragTrap::FragTrap(src){
 
 	std::cout << "DiamondTrap copy constructor called" << std::endl;
 	*this = src;

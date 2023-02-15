@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 14:57:38 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/13 15:43:57 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/15 20:24:48 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ ScavTrap::~ScavTrap() {
 	std::cout << "ScavTrap destructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(ScavTrap const& src) {
+ScavTrap::ScavTrap(ScavTrap const& src) : ClapTrap::ClapTrap(src) {
 
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 	*this = src;
