@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:12:53 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/14 17:52:19 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:54:21 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ Animal::Animal() : _type("typical") {
 
 Animal::Animal(Animal const& src) {
 
-	std::cout << "Animal copy constructor called" << std::endl;
 	*this = src;
+	std::cout << "Animal copy constructor called" << std::endl;
 }
 
 Animal::~Animal() {
@@ -30,10 +30,10 @@ Animal::~Animal() {
 
 Animal&	Animal::operator=(Animal const& rhs) {
 
-	std::cout << "Animal copy assignment operator called" << std::endl;
 	if (this != &rhs)
 		this->_type = rhs._type;
 	return (*this);
+	std::cout << "Animal copy assignment operator called" << std::endl;
 }
 
 void	Animal::makeSound(void) const {

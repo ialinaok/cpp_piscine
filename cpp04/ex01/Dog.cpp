@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 16:23:49 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/15 20:47:08 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/16 18:09:00 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,32 @@
 
 Dog::Dog() {
 
-	std::cout << BLU << "Dog default constructor called" << D << std::endl;
 	this->_type = "Dog";
 	this->_brain = new Brain();
+	std::cout << BLU << "Dog default constructor called" << D << std::endl;
 }
 
-Dog::Dog(Dog const& src) : Animal::Animal() {
+Dog::Dog(Dog const& src) : Animal::Animal(src) {
 
+	this->_brain = new Brain(*src._brain);
+	this->_type = src._type;
 	std::cout << "Dog copy constructor called" << std::endl;
-	*this = src;
 }
 
 Dog::~Dog() {
 
-	std::cout << CY << "Dog destructor called" << D << std::endl;
 	delete this->_brain;
-	this->_brain = new Brain();
+	std::cout << CY << "Dog destructor called" << D << std::endl;
 }
 
 Dog&	Dog::operator=(Dog const& rhs) {
 
-	std::cout << "Dog copy assignment operator called" << std::endl;
-	if (this != &rhs)
+	if (this != &rhs) {
+
+		*this->_brain = *rhs._brain;
 		this->_type = rhs._type;
+	}
+	std::cout << "Dog copy assignment operator called" << std::endl;
 	return (*this);
 }
 

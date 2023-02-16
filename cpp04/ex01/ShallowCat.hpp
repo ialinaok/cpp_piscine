@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 20:55:15 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/15 20:55:41 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:50:34 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,13 @@ class	ShallowCat : public Animal {
 
 		const std::string	getOutOfBrain(int i);
 		void				putIntoBrain(std::string idea, int i);
+		Brain	*getBrain(void);
 
 	private:
 		Brain	*_brain;
+		static bool	_freed;
+		// int		*_check;
+		// int		*a;
 };
 
 #endif

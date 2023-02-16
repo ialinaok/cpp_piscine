@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 19:11:52 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/15 21:12:10 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:51:30 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ Brain::Brain() {
 
 Brain::Brain(Brain const & src) {
 
+	if (this != &src) {
+		for (int i = 0; i < 100; i++)
+			this->_ideas[i] = src._ideas[i];
+	}
 	std::cout << "Brain copy constructor called" << std::endl;
-	*this = src;
 }
 
 Brain::~Brain() {
@@ -30,23 +33,22 @@ Brain::~Brain() {
 
 Brain &	Brain::operator=(Brain const & rhs) {
 
-	std::cout << "Brain copy assignment operator called" << std::endl;
-	(void) rhs;
+	if (this != &rhs) {
+		for (int i = 0; i < 100; i++)
+			this->_ideas[i] = rhs._ideas[i];
+	}
 	return (*this);
+	std::cout << "Brain copy assignment operator called" << std::endl;
 }
 
 const std::string	Brain::getIdea(int i) const {
 
-	if (i >= 100)
-		return ("WRONGGG");
-	return (this->_ideas[i]);
+	if (i < 100)
+		return (this->_ideas[i]);
+	return ("");
 }
 void				Brain::setIdea(std::string idea, int i) {
 
-	if (i >= 100) {
-
-		std::cout << "WRONGGG" << std::endl;
-		return;
-	}
-	this->_ideas[i] = idea;
+	if (i < 100)
+		this->_ideas[i] = idea;
 }
