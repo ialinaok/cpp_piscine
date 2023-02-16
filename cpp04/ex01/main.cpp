@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:09:12 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/16 17:42:11 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/16 18:41:59 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ int	main() {
 
 	std::cout << BLA << "------------------------------" << D << std::endl;
 	std::cout << BLA << "------" << YELL << "TESTING DEEP COPY" << BLA << "-------" << std::endl;
-	std::cout << BLA << "------------------------------" << D << std::endl;//creating a Cat object 'furry' on heap and setting an idea in its brain
+	std::cout << BLA << "------------------------------" << D << std::endl;
+//creating a Cat object 'furry' on heap and setting an idea in its brain
 	Cat	*furry = new Cat();
 	furry->putIntoBrain("Scratch me behind my ear!", 23);
 
