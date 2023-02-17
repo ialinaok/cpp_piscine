@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 14:30:30 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/14 16:38:34 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 13:15:04 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,15 @@ int	main() {
 
 	Warriorv	*c = new Warriorv();
 	Characterv	*d = new Warriorv();
+	// Warriorv	*e = new Characterv();
+	// e->sayHello("BRUH");
 
 	a->sayHello("Jeff");
 	b->sayHello("Tomi");
 
 	c->sayHello("Jeff");
 	d->sayHello("Tomi");
+
 
 	// virtual keyword - it means that the linkage will be dynamic and not static
 	// the only way for the compiler to know which type of object it is is to look at it's type
