@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:55:12 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 16:43:40 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 20:43:23 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,32 +15,32 @@
 Ice::Ice() {
 
 	this->_type = "ice";
-	std::cout << "Ice default constructor called" << std::endl;
+	// std::cout << "Ice default constructor called" << std::endl;
 }
 
 //this is to protect the "ice" type. it's not actually initializing with "type"
 Ice::Ice(std::string type) : AMateria::AMateria(type) {
 
 	this->_type = "ice";
-	std::cout << "Ice parametric constructor called" << std::endl;
+	// std::cout << "Ice parametric constructor called" << std::endl;
 }
 
 Ice::Ice(Ice const & src) : AMateria::AMateria(src) {
 
 	this->_type = src._type;
-	std::cout << "Ice copy constructor called" << std::endl;
+	// std::cout << "Ice copy constructor called" << std::endl;
 }
 
 Ice::~Ice() {
 
-	std::cout << "Ice destructor called" << std::endl;
+	// std::cout << "Ice destructor called" << std::endl;
 }
 
 Ice &	Ice::operator=(Ice const & rhs) {
 
 	if (this != &rhs)
 		this->_type = rhs._type;
-	std::cout << "Ice copy assignemnt operator overload called" << std::endl;
+	// std::cout << "Ice copy assignemnt operator overload called" << std::endl;
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:56:56 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 16:42:32 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 20:42:14 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,29 @@
 
 AMateria::AMateria() : _type("just a materia"){
 
-	std::cout << "AMateria default constructor called" << std::endl;
+	// std::cout << "AMateria default constructor called" << std::endl;
 }
 
 AMateria::AMateria(std::string const & type) : _type(type) {
 
-	std::cout << "AMateria parametric constructor called" << std::endl;
+	// std::cout << "AMateria parametric constructor called" << std::endl;
 }
 
 AMateria::AMateria(AMateria const & src) : _type(src._type) {
 
-	std::cout << "AMateria copy constructor called" << std::endl;
+	// std::cout << "AMateria copy constructor called" << std::endl;
 }
 
 AMateria::~AMateria() {
 
-	std::cout << "AMateria destructor called" << std::endl;
+	// std::cout << "AMateria destructor called" << std::endl;
 }
 
 AMateria &	AMateria::operator=(AMateria const & rhs) {
 
 	if (this != &rhs)
-		this->_type = rhs._type;
-	std::cout << "Copy assignment operator overload called" << std::endl;
+		this->_type = rhs._type; // this is not needed but whyy
+	// std::cout << "AMateria copy assignment operator overload called" << std::endl;
 	return (*this);
 }
 

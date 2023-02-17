@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:29:27 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 15:39:02 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 20:40:07 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 int main() {
 
+//*** TEST FROM SUBJECT PDF***//
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
@@ -27,7 +28,8 @@ int main() {
 	ICharacter* me = new Character("me");
 	
 	AMateria* tmp;
-	tmp = src->createMateria("ice");
+	std::cout << YELL;
+	tmp = src->createMateria("ice");  //these are being freed from Character bc they are added to it's inventory
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);

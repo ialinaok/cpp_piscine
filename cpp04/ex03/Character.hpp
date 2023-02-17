@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:39:00 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 15:49:56 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 20:17:14 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ class	Character : public ICharacter {
 	private:
 		std::string	_name;
 		AMateria	*_inventory[4];
-		bool		_track_alloc[4];
 };
 
 #endif
