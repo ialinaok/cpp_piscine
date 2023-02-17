@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:04:22 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 16:15:38 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:46:47 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ MateriaSource::MateriaSource() {
 
 MateriaSource::MateriaSource(MateriaSource const & src) {
 
-	int	i = 0;
+	// int	i = 0;
 
-	while (src->_memory[i])
-		i++;
-	if (i == 4)
+	(void)src;
+	// while (src._memory[i])
+	// 	i++;
 	std::cout << "MateriaSource copy constructor called" << std::endl;
 }
 
@@ -34,11 +34,12 @@ MateriaSource::~MateriaSource() {
 	std::cout << "MateriaSource destructor called" << std::endl;
 }
 
-AMateria &	MateriaSource::operator=(MateriaSource const & rhs) {
+MateriaSource &	MateriaSource::operator=(MateriaSource const & rhs) {
 
 	for (int i = 0; i < 4; i++)
 		this->_memory[i] = rhs._memory[i];
 	std::cout << "MateriaSource copy assignment operator overload called" << std::endl;
+	return (*this);
 }
 
 
@@ -64,7 +65,7 @@ void MateriaSource::learnMateria(AMateria *m) {
 AMateria* MateriaSource::createMateria(std::string const & type) {
 
 	int i = 0;
-	AMateria	*ret;
+	AMateria	*ret = NULL;
 
 	while (i < 4)
 		if (this->_memory[i]->getType() == type)

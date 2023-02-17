@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:50:03 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 15:10:39 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:45:40 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include "AMateria.hpp"
 
 class	IMateriaSource {
+
 	public:
 		virtual ~IMateriaSource() {}
 		virtual void learnMateria(AMateria *m) = 0;

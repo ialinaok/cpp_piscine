@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:43:59 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 15:54:07 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:43:04 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,7 +127,7 @@ void	Character::unequip(int idx) {
 void	Character::use(int idx, ICharacter& target) {
 
 	if (this->_track_alloc[idx] == true)
-		this->_inventory[idx].use(target);
+		this->_inventory[idx]->use(target);
 	else
 		std::cout << "No materia at given index" << std::endl;
 }

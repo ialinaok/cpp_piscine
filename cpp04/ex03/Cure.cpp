@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:33:50 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 14:54:50 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:43:26 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ Cure &	Cure::operator=(Cure const & rhs) {
 	if (this != &rhs)
 		this->_type = rhs._type;
 	std::cout << "Cure copy assignemnt operator overload called" << std::endl;
+	return (*this);
 }
 
 AMateria	*Cure::clone() const {

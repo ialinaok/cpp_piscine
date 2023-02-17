@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:48:21 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 16:16:50 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:22:03 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include <string>
 #include <iostream>
 #include "AMateria.hpp"
+
+class	AMateria;
 
 class	ICharacter {
 

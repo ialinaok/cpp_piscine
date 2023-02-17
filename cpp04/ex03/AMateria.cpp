@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:56:56 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 15:46:27 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:42:32 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,5 @@ std::string const &	AMateria::getType() const {
 
 void		AMateria::use(ICharacter& target) {
 
-	std::cout << "default materias behavior for " << target.getType() << std::endl;
+	(void)target;
 }
