@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:43:59 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 20:42:49 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 21:44:19 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	Character::equip(AMateria* m) {
 
 void	Character::unequip(int idx) {
 
-	if (this->_inventory[idx] != NULL) {
+	if (this->_inventory[idx] != NULL && idx < 4) {
 
 		this->_inventory[idx] = NULL;
 		std::cout << YELL << ">>> Item unequipped <<<" << D << std::endl;
@@ -89,8 +89,20 @@ void	Character::unequip(int idx) {
 
 void	Character::use(int idx, ICharacter& target) {
 
-	if (this->_inventory[idx] != NULL)
+	if (this->_inventory[idx] != NULL && idx < 4)
 		this->_inventory[idx]->use(target);
 	else
 		std::cout << YELL << ">>> No materia at given index <<<" << D << std::endl;
+}
+
+void	Character::showInventory(void) const {
+
+	for (int i = 0; i < 4; i++)
+		if (this->_inventory[i])
+			std::cout << BLU << "Item: " << this->_inventory[i]->getType() << " at slot: " << i << D << std::endl;
+}
+
+AMateria	*Character::getAddress(int i) const {
+
+	return (this->_inventory[i]);
 }

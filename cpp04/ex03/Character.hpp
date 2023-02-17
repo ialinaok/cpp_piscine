@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:39:00 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 20:17:14 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 21:14:23 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ class	Character : public ICharacter {
 		void	equip(AMateria* m);
 		void	unequip(int idx);
 		void	use(int idx, ICharacter& target);
+		void	showInventory(void) const;
+		AMateria	*getAddress(int i) const;
 
 	private:
 		std::string	_name;
