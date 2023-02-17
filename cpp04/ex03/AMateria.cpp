@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:56:56 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 13:38:41 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:46:27 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ AMateria::~AMateria() {
 
 AMateria &	AMateria::operator=(AMateria const & rhs) {
 
-	// if (this != &rhs)
-	// 	this->_type = rhs._type;
+	if (this != &rhs)
+		this->_type = rhs._type;
 	std::cout << "Copy assignment operator overload called" << std::endl;
 	return (*this);
 }
@@ -47,5 +47,5 @@ std::string const &	AMateria::getType() const {
 
 void		AMateria::use(ICharacter& target) {
 
-	std::cout << "default materias behavior" << std::endl;
+	std::cout << "default materias behavior for " << target.getType() << std::endl;
 }

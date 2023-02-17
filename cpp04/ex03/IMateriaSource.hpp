@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:50:03 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 11:51:05 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:10:39 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class	IMateriaSource {
 	public:
 		virtual ~IMateriaSource() {}
-		virtual void learnMateria(AMateria*) = 0;
+		virtual void learnMateria(AMateria *m) = 0;
 		virtual AMateria* createMateria(std::string const & type) = 0;
 };
 

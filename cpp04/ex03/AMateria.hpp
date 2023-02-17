@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 19:03:38 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 12:27:10 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 15:53:25 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class	AMateria {
 		AMateria();
 		AMateria(std::string const & type);
 		AMateria(AMateria const & src); 				//should write implementation bc this will be called in copy constructor of derived class
-		~AMateria();
+		virtual ~AMateria();
 		AMateria &	operator=(AMateria const & rhs);	//can write implementation but doesnt make sense as this class will never be able to be instantiated
 														//so there will never be objects of the abstract class to be assigned to
 														//!BUT
@@ -42,5 +42,17 @@ class	AMateria {
 		virtual AMateria	*clone() const = 0;			//not correct to write an implementation. derived classes are forced to have their own implementations
 		virtual void		use(ICharacter& target);
 };
+
+// *** COLORS ***//
+# define BLANK "\e[0m"
+# define BLA "\033[0;30m"
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELL "\033[0;33m"
+# define BLU "\033[0;34m"
+# define PU "\033[0;35m"
+# define CY "\033[0;36m"
+# define WH "\033[0;37m"
+# define D "\033[0m"
 
 #endif

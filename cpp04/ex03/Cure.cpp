@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:33:50 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 13:38:23 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/17 14:54:50 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ Cure::~Cure() {
 
 Cure &	Cure::operator=(Cure const & rhs) {
 
-	// if (this != &rhs)
-	// 	this->_type = rhs._type;
+	if (this != &rhs)
+		this->_type = rhs._type;
 	std::cout << "Cure copy assignemnt operator overload called" << std::endl;
 }
 
@@ -50,5 +50,5 @@ AMateria	*Cure::clone() const {
 
 void		Cure::use(ICharacter& target) {
 
-	std::cout << CY << "* heals " << target << "'s wounds *" << D << std::endl;
+	std::cout << CY << "* heals " << target.getName() << "'s wounds *" << D << std::endl;
 }
