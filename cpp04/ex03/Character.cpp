@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:43:59 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 21:44:19 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:49:33 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ void	Character::equip(AMateria* m) {
 		if (this->_inventory[i] == NULL) {
 
 			this->_inventory[i] = m;
+			std::cout << YELL << ">>> Item ";
+			m->getType() == "ice" ? std::cout << CY : std::cout << GREEN;
+			std::cout << m->getType() << YELL << " equipped" << D << std::endl;
 			return ;
 		}
 	}
@@ -80,8 +83,10 @@ void	Character::unequip(int idx) {
 
 	if (this->_inventory[idx] != NULL && idx < 4) {
 
+		std::cout << YELL << ">>> Item ";
+		this->_inventory[idx]->getType() == "ice" ? std::cout << CY : std::cout << GREEN;
+		std::cout << this->_inventory[idx]->getType() << YELL << " unequipped <<<" << D << std::endl;
 		this->_inventory[idx] = NULL;
-		std::cout << YELL << ">>> Item unequipped <<<" << D << std::endl;
 	}
 	else
 		std::cout << YELL << ">>> There's no item to unequip at given slot <<<" << D << std::endl;
@@ -98,8 +103,12 @@ void	Character::use(int idx, ICharacter& target) {
 void	Character::showInventory(void) const {
 
 	for (int i = 0; i < 4; i++)
-		if (this->_inventory[i])
-			std::cout << BLU << "Item: " << this->_inventory[i]->getType() << " at slot: " << i << D << std::endl;
+		if (this->_inventory[i]) {
+
+			std::cout << BLA << "Item: ";
+			this->_inventory[i]->getType() == "ice" ? std::cout << CY : std::cout << GREEN;
+			std::cout << this->_inventory[i]->getType() << BLA << " at slot: " << i << D << std::endl;
+		}
 }
 
 AMateria	*Character::getAddress(int i) const {

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 15:29:27 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/17 21:42:29 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/18 13:59:22 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int main() {
 	std::cout << BLA << "-----------------------------------" << D << std::endl;
 	std::cout << BLA << "---------" << YELL << "ADDITIONAL TESTS" << BLA << "----------" << std::endl;
 	std::cout << BLA << "-----------------------------------" << WH << std::endl;
-	std::cout << BLA << "-----------------------------------" << D << std::endl;
-	std::cout << BLA << "- - - - -" << PU << "Character test" << BLA << " - - - - - -" << std::endl;
-	std::cout << BLA << "-----------------------------------" << WH << std::endl;
+	std::cout << BLA << "---------------------------------------------" << D << std::endl;
+	std::cout << PU << "equip(), getName() and copy of Character test" << std::endl;
+	std::cout << BLA << "---------------------------------------------" << WH << std::endl;
 
 	Character*	max = new Character("Max");
 
@@ -60,28 +60,38 @@ int main() {
 
 	Character*	newMax = new Character(*max);
 
-	std::cout << max->getName() << "'s inventory: " << std::endl;
+	std::cout << std::endl << max->getName() << "'s inventory: " << std::endl;
 	max->showInventory();
 	std::cout << std::endl << "New " << newMax->getName() << "'s inventory: " << std::endl;
 	newMax->showInventory();
 
-//testing unequip
+	std::cout << BLA << "--------------" << D << std::endl;
+	std::cout << PU << "unequip() test" << std::endl;
+	std::cout << BLA << "--------------" << WH << std::endl;
+
 	AMateria	*toDelete = newMax->getAddress(1);
 	newMax->unequip(1);
 	newMax->unequip(1);
 	delete toDelete;
 
-	std::cout << max->getName() << "'s inventory: " << std::endl;
+	std::cout << std::endl << max->getName() << "'s inventory: " << std::endl;
 	max->showInventory();
 	std::cout << std::endl << "New " << newMax->getName() << "'s inventory: " << std::endl;
 	newMax->showInventory();
 	std::cout << std::endl;
 
+	std::cout << BLA << "----------" << D << std::endl;
+	std::cout << PU << "use() test" << std::endl;
+	std::cout << BLA << "----------" << WH << std::endl;
+
 	newMax->use(1, *bob);
 	max->use(1, *bob);
 	max->use(7, *bob);
 
-//testing inventories boundaries
+	std::cout << BLA << "------------------" << D << std::endl;
+	std::cout << PU << "more equip() tests" << std::endl;
+	std::cout << BLA << "------------------" << WH << std::endl;
+
 	for (int i = 0; i < 3; i++) {
 
 		tmp = new Cure();
