@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:35:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/18 20:14:16 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/19 11:58:10 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,17 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 
 		this->_grade = grade;
 		if (this->_grade < 1)
-			throw GradeOutOfHigherScopeException();
+			throw GradeTooHighException();
 		else if (this->_grade > 150)
-			throw GradeOutOfLowerScopeException();
+			throw GradeTooLowException();
 	}
-	catch (GradeOutOfHigherScopeException& e) {
+	catch (GradeTooHighException& e) {
 
-		std::cout << RED << "ERROR - can't get higher" << D << std::endl;
+		std::cout << RED << "ERROR - office does not hire such high-lvl bureaucrats" << D << std::endl;
 	}
-	catch (GradeOutOfLowerScopeException& e) {
+	catch (GradeTooLowException& e) {
 
-		std::cout << RED << "ERROR - can't get lower" << D << std::endl;
+		std::cout << RED << "ERROR - this low grade is unacceptable here" << D << std::endl;
 	}
 }
 
@@ -62,12 +62,12 @@ void	Bureaucrat::increment(void) {
 
 		this->_grade--;
 		if (this->_grade < 1)
-			throw GradeOutOfHigherScopeException();
+			throw GradeTooHighException();
 	}
-	catch (GradeOutOfHigherScopeException& e) {
+	catch (GradeTooHighException& e) {
 
 		this->_grade++;
-		std::cout << RED << "ERROR - can't get lower" << std::endl;
+		std::cout << RED << "ERROR - can't get higher lvl" << std::endl;
 	}
 }
 
@@ -77,12 +77,12 @@ void	Bureaucrat::decrement(void) {
 
 		this->_grade++;
 		if (this->_grade > 150)
-			throw GradeOutOfLowerScopeException();
+			throw GradeTooLowException();
 	}
-	catch (GradeOutOfLowerScopeException& e) {
+	catch (GradeTooLowException& e) {
 
 		this->_grade--;
-		std::cout << RED << "ERROR - can't get higher" << std::endl;
+		std::cout << RED << "ERROR - can't get lower lvl" << std::endl;
 	}
 }
 
@@ -96,19 +96,19 @@ int			Bureaucrat::getGrade(void) const {
 	return (this->_grade);
 }
 
-const char*	Bureaucrat::GradeOutOfLowerScopeException::what() const throw() {
+const char*	Bureaucrat::GradeTooLowException::what() const throw() {
 
 	return ("Grade can't get any lower #loser");
 }
 
-const char*	Bureaucrat::GradeOutOfHigherScopeException::what() const throw() {
+const char*	Bureaucrat::GradeTooHighException::what() const throw() {
 
 	return ("Grade can't get any higher #wolf");
 }
 
 std::ostream&	operator<<(std::ostream& o, Bureaucrat const& rhs) {
 
-	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
+	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade();
 
 	return (o);
 }

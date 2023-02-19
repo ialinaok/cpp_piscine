@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:24:24 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/18 20:05:33 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/19 11:56:58 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ class	Bureaucrat {
 		std::string	getName(void) const;
 		int			getGrade(void) const;
 
-		class	GradeOutOfLowerScopeException : public std::exception {
+		class	GradeTooLowException : public std::exception {
 			public:
 				virtual const char*	what() const throw();
 		};
 
-		class	GradeOutOfHigherScopeException : public std::exception {
+		class	GradeTooHighException : public std::exception {
 			public:
 				virtual const char*	what() const throw();
 		};
