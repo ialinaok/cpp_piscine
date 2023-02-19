@@ -6,13 +6,20 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 20:07:21 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/19 12:00:57 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/19 15:25:01 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
 int	main() {
+
+
+	Bureaucrat	test;
+	Bureaucrat	copy(test);
+
+	std::cout << PU << test << std::endl;
+	std::cout << PU << copy << std::endl;
 
 	std::cout << BLA << "----------------------------------" << D << std::endl;
 	std::cout << BLA << "-----" << YELL << "TEST DEFAULT CONSTRUCTOR" << BLA << "-----" << std::endl;

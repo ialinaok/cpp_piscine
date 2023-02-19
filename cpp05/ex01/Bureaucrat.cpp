@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:35:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/19 17:20:28 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/19 12:16:34 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name) {
 	}
 }
 
-Bureaucrat::Bureaucrat(Bureaucrat const & src) : _name(src._name) {
+Bureaucrat::Bureaucrat(Bureaucrat const & src) {
 
 	*this = src;
 	// std::cout << "Bureaucrat copy constructor called" << std::endl;
@@ -84,6 +84,11 @@ void	Bureaucrat::decrement(void) {
 		this->_grade--;
 		std::cout << RED << "ERROR - can't get lower lvl" << std::endl;
 	}
+}
+
+void	Bureaucrat::signForm(Form & form) {
+
+	
 }
 
 std::string	Bureaucrat::getName(void) const {
