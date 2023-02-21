@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:24:24 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/19 17:18:18 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/21 20:05:33 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <exception>
 #include "Form.hpp"
 
-// class	Form;
+class	Form;
 
 class	Bureaucrat {
 

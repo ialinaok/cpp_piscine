@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:35:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/19 12:16:34 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:44:00 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,20 @@ void	Bureaucrat::decrement(void) {
 	catch (GradeTooLowException& e) {
 
 		this->_grade--;
-		std::cout << RED << "ERROR - can't get lower lvl" << std::endl;
+		std::cout << RED << "ERROR - can't get lower lvl" << D << std::endl;
 	}
 }
 
 void	Bureaucrat::signForm(Form & form) {
 
-	
+	try {
+
+		form.beSigned(*this);
+	}
+	catch (Form::GradeTooLowException& e) {
+
+		std::cout << RED << "ERROR - Bureaucrat's lvl is too low" << D << std::endl;
+	}
 }
 
 std::string	Bureaucrat::getName(void) const {

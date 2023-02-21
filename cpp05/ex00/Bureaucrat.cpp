@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:35:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/19 17:20:28 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:44:23 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	Bureaucrat::increment(void) {
 	catch (GradeTooHighException& e) {
 
 		this->_grade++;
-		std::cout << RED << "ERROR - can't get higher lvl" << std::endl;
+		std::cout << RED << "ERROR - can't get higher lvl" << D << std::endl;
 	}
 }
 
@@ -82,7 +82,7 @@ void	Bureaucrat::decrement(void) {
 	catch (GradeTooLowException& e) {
 
 		this->_grade--;
-		std::cout << RED << "ERROR - can't get lower lvl" << std::endl;
+		std::cout << RED << "ERROR - can't get lower lvl" << D << std::endl;
 	}
 }
 
