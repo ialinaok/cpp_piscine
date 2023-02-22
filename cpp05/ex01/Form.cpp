@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 12:16:52 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/21 20:10:47 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:48:10 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,12 @@ Form &	Form::operator=(Form const & rhs) {
 
 void	Form::beSigned(Bureaucrat const & pen) {
 
-	pen.getGrade() >= this->_grade_exec ? this->_signed = true : throw Form::GradeTooLowException();
+	if (this->_signed == true) {
+
+		throw Form::AlreadySignedException();
+		return ;
+	}
+	pen.getGrade() <= this->_grade_exec ? this->_signed = true : throw Form::GradeTooLowException();
 }
 
 const std::string	Form::getName(void) const {
@@ -79,6 +84,11 @@ const char*	Form::GradeTooLowException::what() const throw() {
 const char*	Form::GradeTooHighException::what() const throw() {
 
 	return ("Form cannot be signed, Bureaucrat's lvl is too high");
+}
+
+const char*	Form::AlreadySignedException::what() const throw() {
+
+	return ("Form already signed");
 }
 
 std::ostream &	operator<<(std::ostream & o, Form const & rhs) {

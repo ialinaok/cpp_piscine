@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:35:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/21 19:44:00 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:47:20 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,8 +94,16 @@ void	Bureaucrat::signForm(Form & form) {
 	}
 	catch (Form::GradeTooLowException& e) {
 
-		std::cout << RED << "ERROR - Bureaucrat's lvl is too low" << D << std::endl;
+		std::cout << this->_name << RED << " couldn't sign " << YELL << form.getName() << RED;
+		std::cout << " because his grade is too low" << D << std::endl;
+		return ;
 	}
+	catch (Form::AlreadySignedException& e) {
+
+		std::cout << WH << "Form " << YELL << form.getName() << WH << " already " << GREEN << "signed" << D << std::endl;
+		return ;
+	}
+	std::cout << this->_name << GREEN << " signed " << YELL <<  form.getName() << GREEN << " successfully" << std::endl;
 }
 
 std::string	Bureaucrat::getName(void) const {

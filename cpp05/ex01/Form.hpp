@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/19 12:03:15 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/21 20:06:26 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:45:39 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,11 @@ class	Form {
 		};
 
 		class	GradeTooHighException : public std::exception {
+			public:
+				virtual const char*	what() const throw();
+		};
+
+		class	AlreadySignedException : public std::exception {
 			public:
 				virtual const char*	what() const throw();
 		};

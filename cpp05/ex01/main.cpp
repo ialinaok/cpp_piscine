@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:22:51 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/21 20:18:21 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:38:10 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,11 @@ int	main() {
 	Form		ard("ARD", 100, 42);
 	Form		fgf("Fahrgastrechte-Formular", 23, 1);
 
+	std::cout << CY << "Before signing: " << D << ard << std::endl;
+	man.signForm(ard);
+	std::cout << CY << "After signing: " << D << ard << std::endl;
 	man.signForm(ard);
 	std::cout << CY << "Before signing: " << D << fgf << std::endl;
 	man.signForm(fgf);
-	std::cout << CY << "After signing: " << D << fgf << std::endl;
+	std::cout << CY << "After attempted signing: " << D << fgf << std::endl;
 }
