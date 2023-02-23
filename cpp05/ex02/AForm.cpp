@@ -6,13 +6,13 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:52:44 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/22 22:31:45 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:14:06 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("C1-ZPF"),  _signed(false), _grade_sign(123), _grade_exec(100), _target("PlanetB") {
+AForm::AForm() : _name("C1-ZPF"), _signed(false), _grade_sign(123), _grade_exec(100), _target("PlanetB") {
 
 	// std::cout << "AForm default constructor called" << std::endl;
 }
@@ -24,7 +24,7 @@ _name(src._name), _signed(src._signed), _grade_sign(src._grade_sign), _grade_exe
 }
 
 AForm::AForm(std::string name, int sign_grade, int exec_grade) :
-_name(name), _signed(false), _grade_sign(sign_grade), _grade_exec(exec_grade) {
+_name(name), _signed(false), _grade_sign(sign_grade), _grade_exec(exec_grade), _target("PlanetB") {
 
 	if (exec_grade > 150 || sign_grade > 150)
 		throw GradeTooLowException();
@@ -40,8 +40,11 @@ AForm::~AForm() {
 
 AForm &	AForm::operator=(AForm const & rhs) {
 
-	if (this != &rhs)
+	if (this != &rhs) {
+
 		this->_signed = rhs._signed;
+		this->_target = rhs._target;
+	}
 	return (*this);
 }
 
@@ -55,7 +58,7 @@ void	AForm::beSigned(Bureaucrat const & pen) {
 	pen.getGrade() <= this->_grade_exec ? this->_signed = true : throw AForm::GradeTooLowException();
 }
 
-void	AForm::checkExecuteRequirements(Bureaucrat const & executor) {
+void	AForm::checkExecuteRequirements(Bureaucrat const & executor) const {
 
 	if (this->_signed == false) {
 
@@ -84,6 +87,16 @@ int	AForm::getGradeSign(void) const {
 int	AForm::getGradeExec(void) const {
 
 	return (this->_grade_exec);
+}
+
+std::string	AForm::getTarget(void) const {
+
+	return (this->_target);
+}
+
+void	AForm::setTarget(std::string target) {
+
+	this->_target = target;
 }
 
 const char*	AForm::GradeTooLowException::what() const throw() {

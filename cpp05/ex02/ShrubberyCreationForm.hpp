@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:02:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/22 22:35:10 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:10:55 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define SHRUBBERY_H
 
 #include "AForm.hpp"
+#include <fstream>
 
 class	ShrubberyCreationForm : public AForm {
 

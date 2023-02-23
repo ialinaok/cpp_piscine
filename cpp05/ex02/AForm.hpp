@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:51:51 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/22 22:21:35 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:14:21 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,15 @@ class	AForm {
 
 		void			beSigned(Bureaucrat const & pen);
 		virtual void	execute(Bureaucrat const & executor) const = 0; //makes no sense to implement it here, but I want a general function to check requirements, so I want to have
-		void			checkExecuteRequirements(Bureaucrat const & executor);   //so I want to have this function instead that I will implement and derived classes will inherit
+		void			checkExecuteRequirements(Bureaucrat const & executor) const;   //so I want to have this function instead that I will implement and derived classes will inherit
 
 		const std::string	getName(void) const;
 		bool				getSignedStatus(void) const;
 		int					getGradeSign(void) const;
 		int					getGradeExec(void) const;
+		std::string			getTarget(void) const;
+		
+		void				setTarget(std::string);
 
 		class	GradeTooLowException : public std::exception {
 			public:
@@ -68,3 +71,5 @@ class	AForm {
 std::ostream &	operator<<(std::ostream & o, AForm const & rhs);
 
 #endif
+
+//I put target here so that I don't have to redeclare it and so that I can initialize it from AForm constructor already
