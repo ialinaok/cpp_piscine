@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:52:44 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/26 10:36:56 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/26 12:47:33 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,26 @@ void	AForm::beSigned(Bureaucrat const & pen) {
 	pen.getGrade() <= this->_grade_exec ? this->_signed = true : throw AForm::GradeTooLowException();
 }
 
-void	AForm::checkExecuteRequirements(Bureaucrat const & executor) const {
+bool	AForm::checkExecuteRequirements(Bureaucrat const & executor) const {
 
-	if (this->_signed == false) {
-
-		throw FormNotSignedException();
-		return ;
+	try {
+		
+		if (this->_signed == false)
+			throw FormNotSignedException(); // if this is thrown, program will jump immediately to the catch block with matching excp
+		if (executor.getGrade() > this->_grade_exec)
+			throw GradeTooLowException();
 	}
-	if (executor.getGrade() > this->_grade_exec)
-		throw GradeTooLowException();
+	catch (FormNotSignedException& e) {
+
+		std::cout << RED << "Cannot execute " << YELL << this->getName() << RED << ": form not signed" << std::endl;
+		return (false);
+	}
+	catch (GradeTooLowException& ee) {
+
+		std::cout << RED << "Cannot execute " << YELL << this->getName() << RED << ": executor's grade too low" << std::endl;
+		return (false);
+	}
+	return (true);
 }
 
 const std::string	AForm::getName(void) const {

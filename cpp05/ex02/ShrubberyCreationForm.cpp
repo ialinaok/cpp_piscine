@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 22:18:10 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/23 18:22:27 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/26 12:57:31 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : AForm() {}
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Shrubbery Creation Form", 145, 137) {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm("Shrubbery Creation Form", 145, 137) {
 
@@ -27,24 +27,13 @@ ShrubberyCreationForm &	ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 
 	if (this != &rhs)
 		AForm::operator=(rhs);
+	return (*this);
 }
 
 void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 
-	try {
-
-		this->checkExecuteRequirements(executor);
-	}
-	catch (FormNotSignedException& e) {
-
-		std::cout << RED << "Cannot execute " << YELL << this->getName() << RED << ": form not signed" << std::endl;
+	if (this->checkExecuteRequirements(executor) == false)
 		return ;
-	}
-	catch (GradeTooLowException& ee) {
-
-		std::cout << RED << "Cannot execute " << YELL << this->getName() << RED << ": executor's grade too low" << std::endl;
-		return ;
-	}
 	std::string		outfile_name = this->getTarget() + "_shrubbery";
 	std::ofstream	ofs(outfile_name.c_str());
 
