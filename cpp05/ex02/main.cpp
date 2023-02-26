@@ -6,12 +6,14 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:23:02 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/26 11:00:25 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/26 13:23:17 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardon.hpp"
 
 int	main() {
 
@@ -43,11 +45,36 @@ int	main() {
 	shrub.execute(phill);
 	std::cout << shrub << std::endl;
 
-			RobotomyRequestForm();
-		RobotomyRequestForm(std::string target);
-		RobotomyRequestForm(RobotomyRequestForm const & src);
-		~RobotomyRequestForm();
-		RobotomyRequestForm &	operator=(RobotomyRequestForm const & rhs);
+	std::cout << BLA << "----------------------------" << D << std::endl;
+	std::cout << BLA << "----" << YELL << "TEST ROBOTOMY FROM" << BLA << "----" << std::endl;
+	std::cout << BLA << "----------------------------" << WH << std::endl;
 
+	RobotomyRequestForm	robot("Marvin"); //sign 72 exec 45
 
+	maddie.signForm(robot);
+	std::cout << robot << std::endl;
+	while (maddie.getGrade() != 70)
+		maddie.increment();
+	maddie.signForm(robot);
+	std::cout << robot << std::endl;
+	robot.execute(maddie);
+	std::cout << robot << std::endl;
+	robot.execute(phill);
+	std::cout << robot << std::endl;
+
+	std::cout << BLA << "----------------------------" << D << std::endl;
+	std::cout << BLA << "----" << YELL << "TEST PRESIDENTIAL PARDON" << BLA << "----" << std::endl;
+	std::cout << BLA << "----------------------------" << WH << std::endl;
+
+	PresidentialPardonForm	pres("Max"); //sign 25, exec 5
+	Bureaucrat				assistant("Personal Assistant to President", 2);
+
+	phill.signForm(pres);
+	std::cout << pres << std::endl;
+	pres.execute(phill);
+	std::cout << pres << std::endl;
+	assistant.signForm(pres);
+	std::cout << pres << std::endl;
+	pres.execute(assistant);
+	std::cout << pres << std::endl;
 }
