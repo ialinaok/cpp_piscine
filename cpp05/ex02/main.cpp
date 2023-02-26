@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 18:23:02 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/26 13:23:17 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:03:40 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main() {
 	Bureaucrat	maddie("Maddie", 149);
 
 	std::cout << BLA << "----------------------------" << D << std::endl;
-	std::cout << BLA << "----" << YELL << "TEST SHRUBBERY FROM" << BLA << "----" << std::endl;
+	std::cout << BLA << "----" << YELL << "TEST SHRUBBERY FORM" << BLA << "----" << std::endl;
 	std::cout << BLA << "----------------------------" << WH << std::endl;
 
 	ShrubberyCreationForm	shrub("garden");   //sign 145 exec 137
@@ -46,7 +46,7 @@ int	main() {
 	std::cout << shrub << std::endl;
 
 	std::cout << BLA << "----------------------------" << D << std::endl;
-	std::cout << BLA << "----" << YELL << "TEST ROBOTOMY FROM" << BLA << "----" << std::endl;
+	std::cout << BLA << "----" << YELL << "TEST ROBOTOMY FORM" << BLA << "----" << std::endl;
 	std::cout << BLA << "----------------------------" << WH << std::endl;
 
 	RobotomyRequestForm	robot("Marvin"); //sign 72 exec 45
