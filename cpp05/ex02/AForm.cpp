@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:52:44 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/23 18:14:06 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/26 10:36:56 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,8 @@ const char*	AForm::FormNotSignedException::what() const throw() {
 std::ostream &	operator<<(std::ostream & o, AForm const & rhs) {
 
 	o << YELL << rhs.getName() << D << " requires lvl " << PU << rhs.getGradeSign() << D << " to sign, and lvl ";
-	o << BLU << rhs.getGradeExec() << D << " to execute. The form is currently ";
+	o << BLU << rhs.getGradeExec() << D << " to execute. The form's target is: " << CY << this->_target << D;
+	o << " The form is currently ";
 	if (rhs.getSignedStatus() == true)
 		o << GREEN << "signed" << D;
 	else

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:51:51 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/23 18:14:21 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/26 10:43:20 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	AForm {
 		AForm();
 		AForm(std::string name, int sign_grade, int exec_grade);
 		AForm(AForm const & src);
-		~AForm();
+		virtual ~AForm();
 		AForm &	operator=(AForm const & rhs);
 
 		void			beSigned(Bureaucrat const & pen);
