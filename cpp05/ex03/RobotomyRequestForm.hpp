@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 22:00:48 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/26 12:01:29 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:30:01 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define ROBOTOMY_H
 
 #include "AForm.hpp"
-#include <cstdlib>
+#include <time.h>
+#include <unistd.h>
 
 class	RobotomyRequestForm : public AForm {
 
@@ -25,7 +26,7 @@ class	RobotomyRequestForm : public AForm {
 		~RobotomyRequestForm();
 		RobotomyRequestForm &	operator=(RobotomyRequestForm const & rhs);
 
-		void	execute(Bureaucrat const & executor) const;
+		bool	execute(Bureaucrat const & executor) const;
 };
 
 #endif

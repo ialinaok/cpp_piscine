@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 10:56:29 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/02/26 12:57:05 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:31:00 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,22 @@ RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const & src) : AFor
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyRequestForm::RobotomyRequestForm &	operator=(RobotomyRequestForm const & rhs) {
+RobotomyRequestForm &	RobotomyRequestForm::operator=(RobotomyRequestForm const & rhs) {
 
 	if (this != &rhs)
 		AForm::operator=(rhs);
 	return (*this);
 }
 
-void	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
+bool	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 
 	if (this->checkExecuteRequirements(executor) == false)
-		return ;
-	std::srand(std::time(0));
-	if (std::rand() % 2 == 0)
-		std::cout << CY << this->getTarget() << D << "got robotomized " << GREEN << "successfully" << D << std::endl;
+		return (false);
+
+	time_t	now = std::time(0);
+	if (now % 2 == 0)
+		std::cout << CY << this->getTarget() << D << " got robotomized " << GREEN << "successfully" << D << std::endl;
 	else
-		std::cout << "Robotomy of " << CY << this->getTarget() << RED << "failed" << D << std::endl;
+		std::cout << "Robotomy of " << CY << this->getTarget() << RED << " failed" << D << std::endl;
+	return (true);
 }

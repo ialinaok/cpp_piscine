@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:52:44 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/26 12:47:33 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:47:31 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	AForm::beSigned(Bureaucrat const & pen) {
 		throw AForm::AlreadySignedException();
 		return ;
 	}
-	pen.getGrade() <= this->_grade_exec ? this->_signed = true : throw AForm::GradeTooLowException();
+	pen.getGrade() <= this->_grade_sign ? this->_signed = true : throw AForm::GradeTooLowException();
 }
 
 bool	AForm::checkExecuteRequirements(Bureaucrat const & executor) const {
@@ -69,12 +69,13 @@ bool	AForm::checkExecuteRequirements(Bureaucrat const & executor) const {
 	}
 	catch (FormNotSignedException& e) {
 
-		std::cout << RED << "Cannot execute " << YELL << this->getName() << RED << ": form not signed" << std::endl;
+		std::cout << RED << "Cannot execute " << YELL << this->getName() << D << ": form " << RED "not signed" << D << std::endl;
 		return (false);
 	}
 	catch (GradeTooLowException& ee) {
 
-		std::cout << RED << "Cannot execute " << YELL << this->getName() << RED << ": executor's grade too low" << std::endl;
+		std::cout << RED << "Cannot execute " << YELL << this->getName() << D << ": executor's grade [";
+		std::cout << BLA << executor.getGrade() << D << "]" << RED << " too low" << D << std::endl;
 		return (false);
 	}
 	return (true);
@@ -134,8 +135,8 @@ const char*	AForm::FormNotSignedException::what() const throw() {
 std::ostream &	operator<<(std::ostream & o, AForm const & rhs) {
 
 	o << YELL << rhs.getName() << D << " requires lvl " << PU << rhs.getGradeSign() << D << " to sign, and lvl ";
-	o << BLU << rhs.getGradeExec() << D << " to execute. The form's target is: " << CY << this->_target << D;
-	o << " The form is currently ";
+	o << BLU << rhs.getGradeExec() << D << " to execute" << std::endl << "The form's target is: " << CY << rhs.getTarget() << D;
+	o << ". The form is currently ";
 	if (rhs.getSignedStatus() == true)
 		o << GREEN << "signed" << D;
 	else

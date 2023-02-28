@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 19:35:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/22 18:47:20 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:34:00 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,24 +86,32 @@ void	Bureaucrat::decrement(void) {
 	}
 }
 
-void	Bureaucrat::signForm(Form & form) {
+void	Bureaucrat::signForm(AForm & form) {
 
 	try {
 
 		form.beSigned(*this);
 	}
-	catch (Form::GradeTooLowException& e) {
+	catch (AForm::GradeTooLowException& e) {
 
-		std::cout << this->_name << RED << " couldn't sign " << YELL << form.getName() << RED;
-		std::cout << " because his grade is too low" << D << std::endl;
+		std::cout << this->_name << RED << " couldn't sign " << YELL << form.getName() << D;
+		std::cout << " because their grade [" << BLA << this->getGrade() << D << "] is" << RED << " too low" << D << std::endl;
 		return ;
 	}
-	catch (Form::AlreadySignedException& e) {
+	catch (AForm::AlreadySignedException& e) {
 
 		std::cout << WH << "Form " << YELL << form.getName() << WH << " already " << GREEN << "signed" << D << std::endl;
 		return ;
 	}
 	std::cout << this->_name << GREEN << " signed " << YELL <<  form.getName() << GREEN << " successfully" << std::endl;
+}
+
+void	Bureaucrat::executeForm(AForm const & form) {
+
+	if (form.execute(*this) == true)
+		std::cout << "Form got " << GREEN << "successfully " << D << "executed by " << this->getName() << std::endl;
+	else
+		std::cout << "Form " << RED << "wasn't executed " << D << "by " << this->getName() << std::endl;
 }
 
 std::string	Bureaucrat::getName(void) const {

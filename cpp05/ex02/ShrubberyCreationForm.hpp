@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 19:02:45 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/23 17:10:55 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:30:16 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	ShrubberyCreationForm : public AForm {
 		~ShrubberyCreationForm();
 		ShrubberyCreationForm &	operator=(ShrubberyCreationForm const & rhs);
 
-		void	execute(Bureaucrat const & executor) const;
+		bool	execute(Bureaucrat const & executor) const;
 };
 
 #endif

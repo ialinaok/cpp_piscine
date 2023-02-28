@@ -3,29 +3,32 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
+#    By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/18 20:06:57 by apielasz          #+#    #+#              #
-#    Updated: 2023/02/22 18:56:35 by apielasz         ###   ########.fr        #
+#    Updated: 2023/02/28 11:35:57 by ialinaok         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = 28b
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Bureaucrat.cpp AForm \
+SRC = main.cpp Bureaucrat.cpp AForm.cpp \
 		ShrubberyCreationForm.cpp \
 		RobotomyRequestForm.cpp \
-		PresidentialPardonForm
+		PresidentialPardonForm.cpp
 
 all: $(NAME)
 
 $(NAME): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $@
 
-fclean:
+clean:
+	rm -rf *_shrubbery
+
+fclean: clean
 	rm -rf $(NAME)
 
 re: fclean all
 
-.PHONY: all fclean re
+.PHONY: all clean fclean re

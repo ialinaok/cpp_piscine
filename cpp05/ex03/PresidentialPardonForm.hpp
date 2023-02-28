@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardon.hpp                             :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 22:02:05 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/22 22:02:41 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:29:50 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	PresidentialPardonForm : public AForm {
 		~PresidentialPardonForm();
 		PresidentialPardonForm &	operator=(PresidentialPardonForm const & rhs);
 
-		void	execute(Bureaucrat const & executor) const;
+		bool	execute(Bureaucrat const & executor) const;
 };
 
 #endif

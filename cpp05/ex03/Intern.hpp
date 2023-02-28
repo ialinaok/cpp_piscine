@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 17:15:00 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/02/26 17:52:07 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:17:49 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
-#include "PresidentialPardon.hpp"
+#include "PresidentialPardonForm.hpp"
 
 class	Intern {
 

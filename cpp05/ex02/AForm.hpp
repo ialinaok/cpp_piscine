@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 18:51:51 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/26 12:46:54 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:29:14 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	AForm {
 		AForm &	operator=(AForm const & rhs);
 
 		void			beSigned(Bureaucrat const & pen);
-		virtual void	execute(Bureaucrat const & executor) const = 0; //makes no sense to implement it here, but I want a general function to check requirements, so I want to have
+		virtual bool	execute(Bureaucrat const & executor) const = 0; //makes no sense to implement it here, but I want a general function to check requirements, so I want to have
 		bool			checkExecuteRequirements(Bureaucrat const & executor) const;   //so I want to have this function instead that I will implement and derived classes will inherit
 
 		const std::string	getName(void) const;

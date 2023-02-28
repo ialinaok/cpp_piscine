@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 17:19:21 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/02/26 17:47:51 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:46:38 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ Intern::Intern(Intern const & src) { //nothing to copy over
 
 Intern::~Intern() {}
 
-Intern::Intern const &	operator=(Intern const & rhs) { //nothing to assgin
+Intern const &	Intern::operator=(Intern const & rhs) { //nothing to assgin
 
 	(void)rhs;
+	return (*this);
 }
 
 AForm	*Intern::makeShrubbery(std::string target) {
@@ -56,11 +57,15 @@ AForm	*Intern::makeForm(std::string form_name, std::string target) {
 			break ;
 		i++;
 	}
-	if (i < 3)
-		(this->*f[i])(target);
+	if (i < 3) {
+
+		std::cout << "Intern " << GREEN << "successfully " << D << "created " << YELL << form_name << D << std::endl;
+		return ((this->*f[i])(target));
+	}
 	else {
 
 		std::cout << "Intern " << RED << "failed " << D << "to create " << YELL << form_name << D;
 		std::cout << " because they're stupid or the form doesn't exist" << std::endl;
 	}
+	return (NULL);
 }

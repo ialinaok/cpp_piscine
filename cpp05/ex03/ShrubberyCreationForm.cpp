@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 22:18:10 by apielasz          #+#    #+#             */
-/*   Updated: 2023/02/26 12:57:31 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:31:14 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ ShrubberyCreationForm &	ShrubberyCreationForm::operator=(ShrubberyCreationForm c
 	return (*this);
 }
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+bool	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 
 	if (this->checkExecuteRequirements(executor) == false)
-		return ;
+		return (false);
 	std::string		outfile_name = this->getTarget() + "_shrubbery";
 	std::ofstream	ofs(outfile_name.c_str());
 
@@ -70,4 +70,5 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	ofs << "                   @@@@@@@@@@@.                                               " << std::endl;
 
 	ofs.close();
+	return (true);
 }
