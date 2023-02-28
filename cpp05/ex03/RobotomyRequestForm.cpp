@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 10:56:29 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/02/28 16:31:00 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/02/28 16:58:28 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ bool	RobotomyRequestForm::execute(Bureaucrat const & executor) const {
 	if (this->checkExecuteRequirements(executor) == false)
 		return (false);
 
+	std::cout << BLA << "*🔊 drilling noises 🔊*" << D << std::endl;
 	time_t	now = std::time(0);
 	if (now % 2 == 0)
 		std::cout << CY << this->getTarget() << D << " got robotomized " << GREEN << "successfully" << D << std::endl;
