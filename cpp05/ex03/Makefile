@@ -6,7 +6,7 @@
 #    By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/18 20:06:57 by apielasz          #+#    #+#              #
-#    Updated: 2023/02/28 16:50:55 by ialinaok         ###   ########.fr        #
+#    Updated: 2023/02/28 17:00:49 by ialinaok         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,4 +32,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all fclean re
+leaks:
+	leaks --atExit -- ./$(NAME)
+
+.PHONY: all clean fclean re leaks
