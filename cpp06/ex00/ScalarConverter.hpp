@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 12:26:51 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/09 20:42:12 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/09 21:50:27 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@
 #include <cstdlib>
 #include <iomanip>
 
+#define CHAR_CONV 0
+#define FLT_CONV 1
+#define DBL_CONV 2
+#define INT_CONV 3
+#define EXCEP_CONV -1
+
 class	ScalarConverter {
 
 	public:
@@ -32,13 +38,18 @@ class	ScalarConverter {
 
 		static bool	check_numeric_input(std::string literal);
 		static int	detect_type(std::string literal);
-		static void	convert_char(std::string literal);
-		static void	convert_float(std::string literal);
-		static void	convert_double(std::string literal);
-		static void	convert_int(std::string literal);
-		static void	convert_exceptional(std::string literal);
 
-		static void	display_all(char c, float f, double d, int i, int precision);
+		class	InvalidValueException : public std::exception {
+			public:
+				virtual const char *what() const throw();
+		};
+		// static void	convert_char(std::string literal);
+		// static void	convert_float(std::string literal);
+		// static void	convert_double(std::string literal);
+		// static void	convert_int(std::string literal);
+		// static void	convert_exceptional(std::string literal);
+		// static void	display_all(char c, float f, double d, int i, int precision);
+
 };
 
 // *** COLORS ***//

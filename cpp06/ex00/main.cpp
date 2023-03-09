@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:24:01 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/09 12:46:12 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/09 21:51:57 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,14 @@ int	main(int argc, char **argv) {
 		std::cout << PU << "accepted <arg>: " << WH << "<'char'>  <int>  <float>  <double>" << std::endl;
 		return (1);
 	}
-	ScalarConverter::convert(argv[1]);
 
+	try {
+
+		ScalarConverter::convert(argv[1]);
+	}
+	catch (ScalarConverter::InvalidValueException& e) {
+
+		std::cout << e.what() << std::endl;
+	}
 	return (0);
 }
