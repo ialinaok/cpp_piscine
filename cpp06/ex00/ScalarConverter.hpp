@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 12:26:51 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/09 21:50:27 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:24:21 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <limits>
 #include <cstdlib>
 #include <iomanip>
+#include <sstream>
 
 #define CHAR_CONV 0
 #define FLT_CONV 1

@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 12:24:01 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/09 21:51:57 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/10 12:12:21 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(int argc, char **argv) {
 	}
 	catch (ScalarConverter::InvalidValueException& e) {
 
-		std::cout << e.what() << std::endl;
+		std::cout << RED << e.what() << std::endl;
 	}
 	return (0);
 }

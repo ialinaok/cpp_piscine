@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 12:54:05 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/09 23:52:27 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/11 14:32:15 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,57 +27,53 @@ ScalarConverter & ScalarConverter::operator=(ScalarConverter const & rhs) {
 	return (*this);
 }
 
-/*  Function takes a string and checks whether it's correct numeric input
-	(only digits, one dot, '+' or '-' sign) */
-
 bool	ScalarConverter::check_numeric_input(std::string literal) {
 
-	bool	dot_encountered = false;
 	for (std::string::const_iterator it = literal.begin(); it != literal.end(); it++) {
 
 		if (*literal.begin() == '-' || *literal.begin() == '+')
 			continue ;
-		if (!std::isdigit(*it)) {
-
-			if (*it == '.' && !dot_encountered)
-				dot_encountered = true;
-			else
-				return (false);
-		}
+		if (!std::isdigit(*it))
+			return (false);
 	}
-	std::cout << GREEN << "here" << std::endl;
 	return (true);
 }
 
 int	ScalarConverter::detect_type(std::string literal) {
 
-	int	ret = -1;
+	int		ret = EXCEP_CONV;
+	double	tmp;
+	float	tmpf;
+	char	*endptr;
 
-	if (literal.length() == 1 && std::isdigit(literal[0]) == 0) {
-
-		std::cout << GREEN << "char" << std::endl;
-			ret = 0;
-	}
+	if (literal.length() == 1 && std::isdigit(literal[0]) == 0)
+		ret = CHAR_CONV;
 	else if (literal[literal.length() - 1] == 'f') {
-		std::cout << GREEN << "float" << std::endl;
 
-		if (ScalarConverter::check_numeric_input(literal.erase(*(literal.end() - 1))))
-			ret = 1; //float
+		tmpf = strtof(literal.c_str(), &endptr);
+		(void) tmpf;
+		if (errno == ERANGE)
+			throw ScalarConverter::InvalidValueException();
+		if (*endptr == 'f')
+			ret = FLT_CONV; //float
 	}
 	else if (literal.find('.') != std::string::npos) {
-		std::cout << GREEN << "dbl" << std::endl;
 
-		if (ScalarConverter::check_numeric_input(literal))
-			ret = 2; //double
+		tmp = std::strtod(literal.c_str(), &endptr);
+		if (errno == ERANGE)
+			throw ScalarConverter::InvalidValueException();
+		if (*endptr == '\0')
+			ret = DBL_CONV; //double
 	}
 	else if (ScalarConverter::check_numeric_input(literal)) {
 
-		std::cout << GREEN << "int" << std::endl;
-		double	tmp = std::strtod(literal.c_str(), NULL);
+		tmp = std::strtod(literal.c_str(), &endptr);
+		if (errno == ERANGE)
+			throw ScalarConverter::InvalidValueException();
 		if (tmp >= INT_MIN && tmp <= INT_MAX)
-			ret = 3; //int
-		else if (tmp <= std::numeric_limits<double>::lowest() || tmp >= std::numeric_limits<double>::max())
-			ret = 2;
+			ret = INT_CONV; //int
+		else if (*endptr == '\0')
+			ret = DBL_CONV; //double
 	}
 	return (ret);
 }
@@ -96,7 +92,6 @@ void	ScalarConverter::convert(std::string literal) {
 	double	d;
 	int		i;
 
-	std::cout << PU << type << std::endl;
 	switch (type) {
 
 		case (EXCEP_CONV) : {
@@ -127,7 +122,7 @@ void	ScalarConverter::convert(std::string literal) {
 			break ;
 		}
 		case (CHAR_CONV) : {
-			
+
 			c = literal[0];
 			f = static_cast<float>(c);
 			d = static_cast<double>(c);
@@ -135,10 +130,8 @@ void	ScalarConverter::convert(std::string literal) {
 			break ;
 		}
 		case (FLT_CONV) : {
-			
+
 			f = std::strtof(literal.c_str(), NULL);
-			if (errno == ERANGE)
-				throw ScalarConverter::InvalidValueException();
 			if (f < 0 || f > 127)
 				char_str = "impossible";
 			else if ((f >= 0 && f < 31) || f == 127.0f)
@@ -147,16 +140,15 @@ void	ScalarConverter::convert(std::string literal) {
 				c = static_cast<char>(f);
 			d = static_cast<double>(f); //casting float to double will not overflow bc double can represent bigger values
 			if (f <= INT_MIN || f >= INT_MAX)
-				throw ScalarConverter::InvalidValueException();
-			i = static_cast<int>(f);
-			precision = literal.size() - literal.find_first_of('.');
+				int_str = "impossible";
+			else
+				i = static_cast<int>(f);
+			precision = literal.size() - literal.find_first_of('.') - 1;
 			break;
 		}
 		case (DBL_CONV) : {
-			
+
 			d = std::strtod(literal.c_str(), NULL);
-			if (errno == ERANGE)
-				throw ScalarConverter::InvalidValueException();
 			if (d < 0 || d > 127)
 				char_str = "impossible";
 			else if ((d >= 0 && d < 31) || d == 127.0)
@@ -168,8 +160,9 @@ void	ScalarConverter::convert(std::string literal) {
 			f = static_cast<float>(d);
 			if (d <= INT_MIN || d >= INT_MAX)
 				int_str = "impossible";
-			i = static_cast<int>(d);
-			precision = literal.size() - literal.find_first_of('.');
+			else
+				i = static_cast<int>(d);
+			precision = literal.size() - literal.find_first_of('.') - 1;
 			break;
 		}
 		case (INT_CONV) : {
@@ -191,11 +184,11 @@ void	ScalarConverter::convert(std::string literal) {
 	else
 		std::cout << YELL << "char: " << WH << "\'" << c << "\'" << std::endl;
 	if (!int_str.empty())
-		std::cout << YELL << "int: " << WH << char_str << std::endl;
+		std::cout << YELL << "int: " << WH << int_str << std::endl;
 	else
 		std::cout << YELL << "int: " << WH << i << std::endl;
 	if (!float_str.empty())
-		std::cout << YELL << "float: " << WH << char_str << std::endl;
+		std::cout << YELL << "float: " << WH << float_str << std::endl;
 	else
 		std::cout << YELL << "float: " << WH << std::fixed << std::setprecision(precision) << f << "f" << std::endl;
 	std::cout << YELL << "double: " << WH << std::fixed << std::setprecision(precision) << d << std::endl;
@@ -203,5 +196,5 @@ void	ScalarConverter::convert(std::string literal) {
 
 const char*	ScalarConverter::InvalidValueException::what() const throw() {
 
-	return ("The input value is incorrect (possibly overflows)");
+	return ("The input value is incorrect");
 }
