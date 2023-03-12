@@ -21,6 +21,7 @@
 #include <iomanip>
 #include <sstream>
 #include <cerrno>
+#include <climits>
 
 #define CHAR_CONV 0
 #define FLT_CONV 1

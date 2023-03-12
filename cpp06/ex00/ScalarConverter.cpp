@@ -155,7 +155,7 @@ void	ScalarConverter::convert(std::string literal) {
 				char_str = "non-displayable";
 			else
 				c = static_cast<char>(d);
-			if (d <= std::numeric_limits<float>::lowest() || d >= std::numeric_limits<float>::max()) //but double can overflow float, so gotta check
+			if (d <= -std::numeric_limits<float>::max() || d >= std::numeric_limits<float>::max()) //but double can overflow float, so gotta check
 				float_str = "impossible";
 			f = static_cast<float>(d);
 			if (d <= INT_MIN || d >= INT_MAX)
