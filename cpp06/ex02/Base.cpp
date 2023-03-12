@@ -73,7 +73,7 @@ void	identify(Base& p) {
 		(void)a_class;
 		check = _A; //this will only happen if cast succeeds
 	}
-	catch (std::bad_cast &bc) {}
+	catch (std::exception &bc) {}
 	if (check == _A) {
 
 		std::cout << "A" << std::endl;
@@ -86,7 +86,7 @@ void	identify(Base& p) {
 		(void)b_class;
 		check = _B;
 	}
-	catch (std::bad_cast &bc) {}
+	catch (std::exception &bc) {}
 	if (check == _B) {
 
 		std::cout << "B" << std::endl;
@@ -99,7 +99,7 @@ void	identify(Base& p) {
 		(void)c_class;
 		check = _C;
 	}
-	catch (std::bad_cast &bc) {}
+	catch (std::exception &bc) {}
 	if (check == _C) {
 
 		std::cout << "C" << std::endl;
