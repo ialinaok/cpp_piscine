@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:02:53 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/11 17:18:56 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:00:20 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-struct	Data {
+struct	data {
 
 	std::string	quote;
 	int			page;

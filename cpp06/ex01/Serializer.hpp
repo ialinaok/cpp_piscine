@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 16:59:42 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/11 17:25:07 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:00:45 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <string>
 #include <iostream>
-#include "Data.hpp"
+#include "data.hpp"
 #include <stdint.h>
 
 class	Serializer {
@@ -26,8 +26,8 @@ class	Serializer {
 
 		Serializer &	operator=(Serializer const & rhs);
 	
-		static uintptr_t	serialize(Data *ptr);
-		static Data			*deserialize(uintptr_t raw);
+		static uintptr_t	serialize(data *ptr);
+		static data			*deserialize(uintptr_t raw);
 };
 
 // *** COLORS ***//

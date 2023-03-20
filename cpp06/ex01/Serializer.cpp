@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Serializer.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:20:29 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/11 17:25:46 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/20 18:00:34 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,11 @@ Serializer &	Serializer::operator=(Serializer const & rhs) {
 	return (*this);
 }
 
-uintptr_t	Serializer::serialize(Data *ptr) {
+uintptr_t	Serializer::serialize(data *ptr) {
 
 	return (reinterpret_cast<uintptr_t>(ptr));
 }
-Data			*Serializer::deserialize(uintptr_t raw) {
+data			*Serializer::deserialize(uintptr_t raw) {
 
-	return (reinterpret_cast<Data *>(raw));
+	return (reinterpret_cast<data *>(raw));
 }
