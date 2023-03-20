@@ -3,16 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 12:26:51 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/12 19:18:32 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:18:45 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once //tells the preprocessor to include header only once, regardless of how many times it's included in the code
 
 #include <iostream>
+#include <cmath>
 #include <string>
 #include <cctype>
 #include <float.h>

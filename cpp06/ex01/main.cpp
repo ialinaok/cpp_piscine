@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:26:23 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/11 17:46:17 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:31:22 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ int	main() {
 	std::cout << BLA "-------------------------------------------" WH << std::endl;
 
 	serialized = Serializer::serialize(&wisdom);
+	deserialized = Serializer::deserialize(serialized);
 
-	std::cout << "serialized: " BLU << serialized << WH << std::endl;
-	std::cout << "deserialized: " BLU << deserialized << WH << std::endl;
+	std::cout << "serialized [uintptr_t]: " BLU << serialized << WH << std::endl;
+	std::cout << "deserialized [Data *]: " YELL << deserialized << WH << std::endl;
 
-	std::cout << WH "deserialized quote: " PU << wisdom.quote << WH << std::endl;
-	std::cout << "deserialized page: " CY << wisdom.page << WH << std::endl;
-	std::cout << "deserialized address: " YELL << &deserialized << WH << std::endl;
+	std::cout << WH "deserialized quote: " PU << deserialized->quote << WH << std::endl;
+	std::cout << "deserialized page: " CY << deserialized->page << WH << std::endl;
 
 	return (0);
 }

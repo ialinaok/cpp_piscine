@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScalarConverter.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 12:54:05 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/11 14:32:15 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/20 17:20:57 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ bool	ScalarConverter::check_numeric_input(std::string literal) {
 
 	for (std::string::const_iterator it = literal.begin(); it != literal.end(); it++) {
 
-		if (*literal.begin() == '-' || *literal.begin() == '+')
+		if ((*literal.begin() == '-' || *literal.begin() == '+') && it == literal.begin())
 			continue ;
 		if (!std::isdigit(*it))
 			return (false);
@@ -50,9 +50,8 @@ int	ScalarConverter::detect_type(std::string literal) {
 		ret = CHAR_CONV;
 	else if (literal[literal.length() - 1] == 'f') {
 
-		tmpf = strtof(literal.c_str(), &endptr);
-		(void) tmpf;
-		if (errno == ERANGE)
+		tmpf = std::strtof(literal.c_str(), &endptr);
+		if ((errno == ERANGE && (tmpf == HUGE_VAL || tmpf == -HUGE_VAL)) || (tmpf == 0 && endptr == literal))
 			throw ScalarConverter::InvalidValueException();
 		if (*endptr == 'f')
 			ret = FLT_CONV; //float
@@ -60,7 +59,7 @@ int	ScalarConverter::detect_type(std::string literal) {
 	else if (literal.find('.') != std::string::npos) {
 
 		tmp = std::strtod(literal.c_str(), &endptr);
-		if (errno == ERANGE)
+		if ((errno == ERANGE && (tmp == HUGE_VAL || tmp == -HUGE_VAL)) || (tmp == 0 && endptr == literal))
 			throw ScalarConverter::InvalidValueException();
 		if (*endptr == '\0')
 			ret = DBL_CONV; //double
@@ -68,7 +67,7 @@ int	ScalarConverter::detect_type(std::string literal) {
 	else if (ScalarConverter::check_numeric_input(literal)) {
 
 		tmp = std::strtod(literal.c_str(), &endptr);
-		if (errno == ERANGE)
+		if ((errno == ERANGE && (tmp == HUGE_VAL || tmp == -HUGE_VAL)) || (tmp == 0 && endptr == literal))
 			throw ScalarConverter::InvalidValueException();
 		if (tmp >= INT_MIN && tmp <= INT_MAX)
 			ret = INT_CONV; //int
