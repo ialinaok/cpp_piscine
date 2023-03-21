@@ -6,11 +6,12 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 12:26:51 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/20 17:18:45 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/03/21 15:29:52 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once //tells the preprocessor to include header only once, regardless of how many times it's included in the code
+#ifndef SCALAR_CONVERTER_HPP
+# define SCALAR_CONVERTER_HPP
 
 #include <iostream>
 #include <cmath>
@@ -67,3 +68,5 @@ class	ScalarConverter {
 # define CY "\033[0;36m"
 # define WH "\033[0;37m"
 # define D "\033[0m"
+
+#endif

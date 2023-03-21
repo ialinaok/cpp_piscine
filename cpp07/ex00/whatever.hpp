@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   whatever.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 17:31:03 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/21 09:50:45 by apielasz         ###   ########.fr       */
+/*   Created: 2023/03/21 09:40:59 by apielasz          #+#    #+#             */
+/*   Updated: 2023/03/21 15:28:32 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_H
-# define BASE_H
+#ifndef WHATEVER_HPP
+# define WHATEVER_HPP
 
-#include <iostream>
-#include <string>
-#include <ctime>
+template <typename T>
+void	swap(T & x, T & y) {
 
-#define _A 0
-#define _B 1
-#define _C 2
+	T	tmp = x;
+	x = y;
+	y = tmp;
+}
 
-class	Base {
+template <typename T>
+T const &	max(T const & x, T const & y) {
 
-	public:
-		virtual ~Base();
-};
+	return (x > y ? x : y);
+}
 
-Base	*generate(void);
-void	identify(Base *p);
-void	identify(Base& p);
+template <typename T>
+T const &	min(T const & x, T const & y) {
 
-// Base *make_a(void);
+	return (x < y ? x : y);
+}
 
 // *** COLORS ***//
 # define BLANK "\e[0m"

@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 17:31:03 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/03/21 09:50:45 by apielasz         ###   ########.fr       */
+/*   Created: 2023/03/21 10:40:20 by apielasz          #+#    #+#             */
+/*   Updated: 2023/03/21 15:51:36 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_H
-# define BASE_H
+#ifndef ITER_HPP
+# define ITER_HPP
 
 #include <iostream>
 #include <string>
-#include <ctime>
 
-#define _A 0
-#define _B 1
-#define _C 2
+template <typename T>
+void	print_element(T const &element) {
 
-class	Base {
+	std::cout << element << std::endl;
+}
 
-	public:
-		virtual ~Base();
-};
+template <typename T>
+void	iter(T *arr, int size, void(* function)(T const &element)) {
 
-Base	*generate(void);
-void	identify(Base *p);
-void	identify(Base& p);
-
-// Base *make_a(void);
+	for (int i = 0; i < size; i++)
+		function(arr[i]);
+}
 
 // *** COLORS ***//
 # define BLANK "\e[0m"
