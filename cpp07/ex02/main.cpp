@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:02:01 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/22 18:27:53 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:35:17 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,24 @@
 #define MAX_VAL 750
 int main(int, char**)
 {
-    Array<int> numbers(MAX_VAL);
-    int* mirror = new int[MAX_VAL];
+	int	size = 5;
+    Array<int> numbers(size);
+    int* mirror = new int[size];
     srand(time(NULL));
-    for (int i = 0; i < MAX_VAL; i++)
+    for (int i = 0; i < size; i++)
     {
         const int value = rand();
         numbers[i] = value;
+		std::cout << YELL << "numbers[" << i << "] = " << WH << numbers[i] << std::endl;
         mirror[i] = value;
+		std::cout << CY << "mirror[" << i << "] = " << WH << mirror[i] << std::endl;
     }
-    //SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
 
-    for (int i = 0; i < MAX_VAL; i++)
+    for (int i = 0; i < size; i++)
     {
         if (mirror[i] != numbers[i])
         {
@@ -40,6 +42,7 @@ int main(int, char**)
             return 1;
         }
     }
+	std::cout << RED << "trying to get element from index '-2'" << D << std::endl;
     try
     {
         numbers[-2] = 0;
@@ -48,19 +51,21 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
+	std::cout << RED << "trying to get element from index '5'" << D << std::endl;
     try
     {
-        numbers[MAX_VAL] = 0;
+        numbers[size] = 0;
     }
     catch(const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
-
-    for (int i = 0; i < MAX_VAL; i++)
+//filling the array again with new values
+    for (int i = 0; i < size; i++)
     {
         numbers[i] = rand();
+		std::cout << YELL << "numbers[" << i << "] = " << WH << numbers[i] << std::endl;
     }
-    delete [] mirror;//
+    delete [] mirror;
     return 0;
 }

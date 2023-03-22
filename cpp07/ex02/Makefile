@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+         #
+#    By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/21 17:38:39 by apielasz          #+#    #+#              #
-#    Updated: 2023/03/21 17:38:55 by apielasz         ###   ########.fr        #
+#    Updated: 2023/03/22 18:34:03 by ialinaok         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ fclean:
 
 re: fclean all
 
-# leaks:
-# 	leaks --atExit -- ./$(NAME)
+leaks:
+	leaks --atExit -- ./$(NAME)
 
 .PHONY: all fclean re
