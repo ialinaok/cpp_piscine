@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:02:01 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/22 18:35:17 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:43:12 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,21 @@ int main(int, char**)
         numbers[i] = value;
 		std::cout << YELL << "numbers[" << i << "] = " << WH << numbers[i] << std::endl;
         mirror[i] = value;
-		std::cout << CY << "mirror[" << i << "] = " << WH << mirror[i] << std::endl;
+		std::cout << CY << "mirror[" << i << "] =  " << WH << mirror[i] << std::endl;
     }
     {
+		std::cout << GREEN << "copying numbers to tmp with = operator" << WH << std::endl;
         Array<int> tmp = numbers;
+		for (int i = 0; i < size; i++) {
+			std::cout << YELL << "numbers[" << i << "] = " << WH << numbers[i] << std::endl;
+			std::cout << CY << "tmp[" << i << "] =     " << WH << tmp[i] << std::endl;
+		}
+		std::cout << GREEN << "copying numbers to tmp with copy constructor" << WH << std::endl;
         Array<int> test(tmp);
+		for (int i = 0; i < size; i++) {
+			std::cout << YELL << "numbers[" << i << "] = " << WH << numbers[i] << std::endl;
+			std::cout << CY << "test[" << i << "] =    " << WH << test[i] << std::endl;
+		}
     }
 
     for (int i = 0; i < size; i++)
@@ -60,7 +70,7 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
-//filling the array again with new values
+//filling the array again with new values - can be reused with no leaks?
     for (int i = 0; i < size; i++)
     {
         numbers[i] = rand();
