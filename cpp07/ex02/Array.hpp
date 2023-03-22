@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:39:00 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/21 18:19:40 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:32:48 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,24 +34,25 @@ class	Array {
 				delete[] this->_arr;
 		}
 
-		Array &	operator=(Array const & rhs) {
-			if (this != &rhs) {
-				delete[] this->_arr;
-				this->_arr = Array(rhs);
-			}
+		Array &	operator=(Array rhs) {
+			swap(*this, rhs);
 			return (*this);
 		}
 
-		Array &	operator[](int i) {
+		T &	operator[](int i) {
 			if (i >= this->_size || i < 0)
-				throw std::exception();
+				throw std::out_of_range("Index out of range");
 			return (this->_arr[i]);
 		}
 
 		int	size(void) const {return (this->_size);}
+		void	swap(Array & first, Array & second) {
+			std::swap(first._size, second._size);
+			std::swap(first._arr, second._arr);
+		}
 
 	private:
-		int	_size;
+		int		_size;
 		T		*_arr;
 };
 
