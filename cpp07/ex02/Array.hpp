@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:39:00 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/22 11:41:21 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:27:17 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ class	Array {
 		}
 
 		int	size(void) const {return (this->_size);}
-		void	swap(Array & first, Array & second) {
-			std::swap(first._size, second._size);
-			std::swap(first._arr, second._arr);
-		}
 
 	private:
 		int		_size;
 		T		*_arr;
+		void	swap(Array & first, Array & second) { //by putting this function in private, I only allow member functions of this class to be able to call it
+			std::swap(first._size, second._size);	  //so it will not be possible to call it from outside and swap contents of arrays in other cases than in = operator
+			std::swap(first._arr, second._arr);
+		}
 };
 
 // *** COLORS ***//

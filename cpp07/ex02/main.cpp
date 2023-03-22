@@ -3,24 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 18:02:01 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/22 11:37:58 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:27:53 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-// #include "Array.hpp"
-// #include <iostream>
-// #include <string>
-
-// int main() {
-
-// 	int *a = new int();
-// 	std::cout << *a << std::endl;
-
-	
-// }
 
 #include <iostream>
 #include "Array.hpp"
