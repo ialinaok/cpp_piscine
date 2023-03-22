@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:39:00 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/22 11:32:48 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/03/22 11:41:21 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class	Array {
 		Array() : _size(0), _arr(NULL) {}
 		Array(unsigned int n) : _size(n), _arr(new T[n]) {}
 		Array(Array const & src) {
+			// std::cout << "copy constructor called" << std::endl;
 			if (src.size() != 0) {
 				this->_size = src.size();
 				this->_arr = new T[this->_size];
