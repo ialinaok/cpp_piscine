@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 17:39:00 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/22 18:27:17 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/03/24 18:17:47 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ class	Array {
 		Array() : _size(0), _arr(NULL) {}
 		Array(unsigned int n) : _size(n), _arr(new T[n]) {}
 		Array(Array const & src) {
-			// std::cout << "copy constructor called" << std::endl;
 			if (src.size() != 0) {
 				this->_size = src.size();
 				this->_arr = new T[this->_size];
