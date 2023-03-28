@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:12:19 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/27 15:50:37 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/03/28 18:15:08 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,25 @@ class	OccurenceNotFound : public std::exception {
 		virtual const char* what() const throw() {return ("Occurence not found"); }
 };
 
+//easyfind that returns iterator
+// template <typename T>
+// typename T::const_iterator	easyfind(T & container, int i) {
+// 	for (typename T::const_iterator it = container.begin(); it != container.end(); it++) {
+
+// 		if (*it == i)
+// 			return (it);
+// 	}
+// 	throw OccurenceNotFound();
+// }
+
+//easyfind that returns pair
 template <typename T>
-typename T::const_iterator	easyfind(T & container, int i) {
-	for (typename T::const_iterator it = container.begin(); it != container.end(); it++) {
+std::pair<typename T::const_iterator, int>	easyfind(T & container, int i) {
+	int	ix = 0;
+	for (typename T::const_iterator it = container.begin(); it != container.end(); it++, ix++) {
 
 		if (*it == i)
-			return (it);
+			return (std::make_pair(it, ix));
 	}
 	throw OccurenceNotFound();
 }
