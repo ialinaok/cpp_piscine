@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:14:31 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/29 18:32:14 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/03/30 20:32:56 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ class	Span {
 		void	addNumber(int new_number);
 		int		shortestSpan(void);
 		int		longestSpan(void);
-		void	fillSpanObj(Span & obj);
+		void	addMany(Span & span);
 
 		class	NoSpanFound : public std::exception {
 			public:
@@ -44,6 +44,7 @@ class	Span {
 
 	private:
 		unsigned int		_N;
+		unsigned int		_ix;
 		std::vector<int>	_arr;
 }
 
