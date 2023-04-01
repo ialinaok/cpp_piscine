@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 18:53:36 by apielasz          #+#    #+#             */
-/*   Updated: 2023/04/01 17:49:52 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:53:05 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,15 @@ int	main() {
 		std::cout << RED << ns.what() << D << std::endl << std::endl;
 	}
 	
+//*** TEST FROM SUBJECT PDF, expected output: "2\n14" ***//
+	// Span sp = Span(5);
+
+	// sp.addNumber(6);
+	// sp.addNumber(3);
+	// sp.addNumber(17);
+	// sp.addNumber(9);
+	// sp.addNumber(11);
+	// std::cout << sp.shortestSpan() << std::endl; std::cout << sp.longestSpan() << std::endl;
+
+	return 0;
 }
