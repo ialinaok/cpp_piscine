@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 18:53:36 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/31 19:39:46 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:49:52 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main() {
 	span.addNumber(2);
 	span.addNumber(5);
 
-	span.print_vector();
+	span.print_vector(PRINT_ALL);
 
 	std::cout << std::endl << YELL "*** trying to add 8th element ***" << std::endl;;
 	try {
@@ -43,7 +43,23 @@ int	main() {
 	std::cout << YELL "*** call to shortestSpan() ***" << std::endl;
 	std::cout << CY "shortest span is: " WH << span.shortestSpan() << std::endl << std::endl;
 
-	std::cout << YELL "*** creating an array to add to span ***" << std::endl;
+	std::cout << YELL "*** testing addMany ***" << std::endl;
 
-//add test for addMany
+	Span	span1(10000);
+	std::cout << std::endl << YELL "*" << BLA " adding 10 random numbers " YELL << "*" << std::endl;
+	span1.addMany(10);
+	span1.print_vector(PRINT_ALL);
+	
+	std::cout << std::endl << YELL "*" << BLA " adding 9990 random numbers, printing 20 " YELL << "*" << std::endl;
+	span1.addMany(9990);
+	span1.print_vector(20);
+
+	std::cout << std::endl << YELL "*** trying to add 10 more elements ***" << std::endl;;
+	try {
+		span.addMany(10);
+	}
+	catch (Span::NoFreeSpaceNoMore & ns) {
+		std::cout << RED << ns.what() << D << std::endl << std::endl;
+	}
+	
 }

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 18:14:31 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/31 19:04:24 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:43:24 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 #include <climits>
 #include <ctime>
 #include <cstdlib>
+
+#define PRINT_ALL -1
 
 class	Span {
 
@@ -33,9 +35,9 @@ class	Span {
 		void	addNumber(int new_number);
 		int		shortestSpan(void);
 		int		longestSpan(void);
-		void	addMany(std::vector<int> addMe);
+		void	addMany(int howMany);
 		void	fillRandom(std::vector<int> & toFill);
-		void	print_vector(void);
+		void	print_vector(int printHowMany);
 
 		class	NoSpanFound : public std::exception {
 			public:

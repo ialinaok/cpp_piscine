@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:59:07 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/31 19:30:53 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/04/01 17:49:23 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,11 @@
 
 Span::Span() : _N(0), _ix(0) {}
 
-Span::Span(unsigned int N) : _N(N), _ix(0) {}
+Span::Span(unsigned int N) : _N(N), _ix(0) {
+
+	std::cout << GREEN "Creating an instance of Span with " WH << this->_N << GREEN;
+	std::cout << GREEN " available slots" D << std::endl; 
+}
 
 Span::Span(Span const & src) : _N(src._N), _ix(0) {
 
@@ -75,14 +79,7 @@ void	Span::addMany(int howMany) {
 	std::srand(std::time(0));
 	std::generate(addMe.begin(), addMe.end(), rand);
 	for (std::vector<int>::iterator it = addMe.begin(); it != addMe.end(); it++) {
-
-		try {
-			this->addNumber(*it);
-		}
-		catch (Span::NoFreeSpaceNoMore& ns) {
-			std::cout << ns.what() << std::endl;
-			break ;
-		}
+		this->addNumber(*it);
 	}
 }
 
@@ -94,12 +91,15 @@ void	Span::addMany(int howMany) {
 // 		*it = std::rand();
 // }
 
-void	Span::print_vector(void) {
+void	Span::print_vector(int printHowMany) {
 
 	int	i = 0;
 
-	for (std::vector<int>::const_iterator it = this->_arr.begin(); it != this->_arr.end(); it++, i++)
+	for (std::vector<int>::const_iterator it = this->_arr.begin(); it != this->_arr.end(); it++, i++) {
+		if (i >= printHowMany && printHowMany != PRINT_ALL)
+			break;
 		std::cout << BLA "vector[" WH << i << BLA "] = " WH << *it << D << std::endl;
+	}
 }
 
 const char *Span::NoSpanFound::what() const throw() {
