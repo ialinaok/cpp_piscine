@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 18:53:36 by apielasz          #+#    #+#             */
-/*   Updated: 2023/04/01 17:53:05 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:54:22 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 int	main() {
 
-	std::cout << YELL "*************************" WH << std::endl;
+	std::cout << YELL "***************************************************" D << std::endl; 
 
 	Span	span(7);
 
 	std::cout << YELL "*** adding 7 elements ***" << std::endl;
-	span.addNumber(8);
+	span.addNumber(9);
 	span.addNumber(20);
 	span.addNumber(2367);
-	span.addNumber(2369);
+	span.addNumber(2370);
 	span.addNumber(42);
 	span.addNumber(2);
 	span.addNumber(5);

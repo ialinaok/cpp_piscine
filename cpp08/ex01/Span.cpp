@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 19:59:07 by apielasz          #+#    #+#             */
-/*   Updated: 2023/04/01 17:49:23 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:59:01 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int		Span::longestSpan(void) {
 
 	int	min = *std::min_element(this->_arr.begin(), this->_arr.end());
 	int	max = *std::max_element(this->_arr.begin(), this->_arr.end());
+	// std::cout << PU "min:" D << min << PU ", max: " D << max << std::endl;
 	return (max - min);
 }
 
@@ -82,14 +83,6 @@ void	Span::addMany(int howMany) {
 		this->addNumber(*it);
 	}
 }
-
-// void	Span::fillRandom(std::vector<int> & toFill) {
-
-// 	std::srand(std::time(0));
-	//// std::generate(toFill.begin(), toFill.end(), rand);
-// 	for (std::vector<int>::iterator it = toFill.begin(); it != toFill.end(); it++)
-// 		*it = std::rand();
-// }
 
 void	Span::print_vector(int printHowMany) {
 
