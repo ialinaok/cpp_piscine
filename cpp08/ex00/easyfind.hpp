@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 14:12:19 by apielasz          #+#    #+#             */
-/*   Updated: 2023/03/28 18:15:08 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:45:24 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,24 @@
 # define EASYFIND_H
 
 #include <iostream>
+#include <iterator>
+#include <algorithm>
 
 class	OccurenceNotFound : public std::exception {
 	public:
 		virtual const char* what() const throw() {return ("Occurence not found"); }
 };
+
+//easyfind that returns pair
+template <typename T>
+std::pair<typename T::const_iterator, int>	easyfind(T & container, int i) {
+	int	ix = 0;
+	typename T::iterator	ret = find(container.begin(), container.end(), i);
+	if (ret == container.end() && i != *ret)
+		throw OccurenceNotFound();
+	ix = std::distance(container.begin(), ret);
+	return (std::make_pair(ret, ix));
+}
 
 //easyfind that returns iterator
 // template <typename T>
@@ -30,18 +43,6 @@ class	OccurenceNotFound : public std::exception {
 // 	}
 // 	throw OccurenceNotFound();
 // }
-
-//easyfind that returns pair
-template <typename T>
-std::pair<typename T::const_iterator, int>	easyfind(T & container, int i) {
-	int	ix = 0;
-	for (typename T::const_iterator it = container.begin(); it != container.end(); it++, ix++) {
-
-		if (*it == i)
-			return (std::make_pair(it, ix));
-	}
-	throw OccurenceNotFound();
-}
 
 // *** COLORS ***//
 # define BLANK "\e[0m"

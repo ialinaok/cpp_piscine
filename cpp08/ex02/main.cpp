@@ -6,16 +6,20 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 18:16:10 by apielasz          #+#    #+#             */
-/*   Updated: 2023/04/28 14:44:56 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/04/28 18:48:19 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MutantStack.hpp"
 #include <iostream>
 #include <list>
+#include <vector>
 
 int main()
 {
+	//*** creating stack on top of vector ***//
+	// MutantStack<int, std::vector<int> > stackOnVector; 
+	
 	MutantStack<int> mstack;
 
 	mstack.push(23);
@@ -31,7 +35,7 @@ int main()
 
 	std::cout << WH ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" D << std::endl; 
 	std::cout << PU "-> const iterator pointing to the first element of the stack" D << std::endl; 
-	std::cout << BLA "	mstack.begin()" D << *cit << std::endl;
+	std::cout << BLA "	mstack.begin() = " D << *cit << std::endl;
 	// *cit = 42; //-> this will not compile - const iterator
 
 	std::cout << CY "-> iterating through stack with non-const iterator\n-> printing values of its elements" D << std::endl;
@@ -56,20 +60,24 @@ int main()
 	std::cout << YELL "-> iterating through stack with non-const iterator\n-> printing values of its elements and changing them to 42" D << std::endl;
 	it = mstack.begin();
 	ite = mstack.end();
+	i = 0;
 	while (it != ite) {
 		std::cout << BLA "	mstack[" << i << "] = " D;
 		std::cout << *it << std::endl;
 		*it = 42;
 		++it;
+		++i;
 	}
 	
 	cit = mstack.begin();
 	cite = mstack.end();
-	std::cout << RED << "-> iterating through stack again, this time with const_iterator\n>> printing values of its elements" D << std::endl;
+	std::cout << RED << "-> iterating through stack again, this time with const_iterator\n-> printing values of its elements" D << std::endl;
+	i = 0;
 	while (cit != cite) {
 		std::cout << BLA "	mstack[" << i << "] = " D;
 		std::cout << *cit << std::endl;
 		++cit;
+		++i;
 	}
 
 	std::cout << std::endl; 
