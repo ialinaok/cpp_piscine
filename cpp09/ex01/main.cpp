@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:58:46 by apielasz          #+#    #+#             */
-/*   Updated: 2023/05/04 16:21:05 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/05/04 22:27:43 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ int main(int argc, char **argv) {
         std::cout << RED << err.what() << D << std::endl;
         return (1);
     }
+	return (0);
 }
