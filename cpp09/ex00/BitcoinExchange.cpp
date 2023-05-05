@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 22:30:03 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/05/05 17:07:47 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:28:41 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	BitcoinExchange::performExchange(std::string & filename) {
 	std::string line;
 	std::getline(inputFile, line);
 	if (line != "date | value")
-		throw std::invalid_argument("Wrong header line in input file.");
+		throw std::invalid_argument("Wrong header in input file.");
 
 	while (std::getline(inputFile, line)) {
 
@@ -168,8 +168,10 @@ bool	BitcoinExchange::checkDate(std::string & dateStr) {
 	time_t	now = time(0);
 	tm	*nowTm = localtime(&now);
 
-	if (year < 2009 || (year == 2009 && month == 1 && day == 1))
+	if (year < 2009 || (year == 2009 && month == 1 && day == 1)) {
 		std::cerr << RED "Error: bitcoin doesn't exist yet." D << std::endl;
+		return (false);
+	}
 
 	int	nowYear = nowTm->tm_year + 1900;
 	int	nowMonth = nowTm->tm_mon + 1;
