@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 22:09:41 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/05/05 00:50:20 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/05/05 16:53:15 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,9 @@
 #include <fstream>
 #include <stdexcept>
 #include <map>
+#include <sstream>
+#include <ctime>
+#include <iomanip>
 
     // check argc ✅
 
@@ -25,13 +28,13 @@
     	// check file open, handle exceptions ✅
 
     // getline 
-        // skip first line
+        // skip first line ✅
         // check each line for:
-            // valid date
-                // greater than btc inauguration (year greater than, day greater month)
-                // YYYY-MM-DD dash seperated format > if valid store in date_string
-                // pipe symbol
-                // value > 0 && < MAXINT > if valid store in value_string
+            // valid date ✅
+                // greater than btc inauguration (year greater than, day greater month) ✅
+                // YYYY-MM-DD dash seperated format > if valid store in date_string ✅
+                // pipe symbol ✅
+                // value > 0 && < 1000 > if valid store in value_string ✅
     
             // valid date and value passed to bitcoinexchange class member lookup member function
 
@@ -45,7 +48,7 @@ class	BitcoinExchange {
 		BitcoinExchange &	operator=(BitcoinExchange const & rhs);
 
 		void	performExchange(std::string & filename);
-		void	parseInputFile(std::string & filename);
+		bool	checkDate(std::string & dateStr);
 
 	private:
 		std::map<std::string, double>	_db;

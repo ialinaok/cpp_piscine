@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 22:09:32 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/05/05 00:50:40 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/05/05 17:05:48 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,7 @@ int	main(int argc, char **argv) {
 	}
 	//2) pass the input file and interpret it
 	std::string	input(argv[1]);
-	try {
-		btcEx.performExchange(input);
-	}
-	catch (std::exception &err) {
-		std::cout << RED << err.what() << D << std::endl;
-		return (1);
-	}
+	btcEx.performExchange(input);
+
 	return (0);
 }
