@@ -20,6 +20,7 @@
 #include <map>
 #include <sstream>
 #include <ctime>
+#include <cstdlib>
 #include <iomanip>
 
     // check argc ✅

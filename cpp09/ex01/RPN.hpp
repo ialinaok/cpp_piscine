@@ -29,6 +29,7 @@ I will assume that we always get correct expression - no need to check input?
 #include <stdexcept>
 #include <string>
 #include <stack>
+#include <cstdlib>
 #include <vector>
 
 class	RPN {
