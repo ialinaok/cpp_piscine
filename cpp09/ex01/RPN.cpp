@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 12:04:22 by apielasz          #+#    #+#             */
-/*   Updated: 2023/05/04 16:30:09 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/05/07 01:13:35 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
 
-RPN::RPN() {}
+RPN::RPN() : _operationsHappenHere(), _tokenList() {}
 
 RPN::RPN(RPN const & src) {
 

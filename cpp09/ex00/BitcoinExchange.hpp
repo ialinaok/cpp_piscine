@@ -6,7 +6,7 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 22:09:41 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/05/05 16:53:15 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/05/07 01:13:54 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ class	BitcoinExchange {
 
 	private:
 		std::map<std::string, double>	_db;
-		std::map<std::string, double>	_input;
 };
 
 // *** COLORS ***//

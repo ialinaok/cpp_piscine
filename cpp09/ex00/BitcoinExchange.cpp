@@ -6,13 +6,13 @@
 /*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 22:30:03 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/05/05 17:28:41 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/05/07 01:14:03 by ialinaok         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-BitcoinExchange::BitcoinExchange() {
+BitcoinExchange::BitcoinExchange() : _db() {
 
 	// std::cout << GREEN "default constructor called" D << std::endl;
 }
