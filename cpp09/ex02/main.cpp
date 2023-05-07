@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:47:08 by apielasz          #+#    #+#             */
-/*   Updated: 2023/05/07 01:24:31 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/05/07 16:25:18 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@
 
 int main(int argc, char **argv) {
 
-	if (argc != 3) {
-		std::cerr << "Error: you need to provide at least two numbers" << std::endl;
+	if (argc <= 3) {
+		std::cerr << RED "Error: you need to provide at least two numbers" D << std::endl;
 		return (1);
 	}
 
+	PmergeMe	sort;
 	try {
-		PmergeMe(argv);
+		sort = PmergeMe(&argv[1]);
 	}
 	catch (std::exception & err) {
-		std::cerr
+		std::cerr << err.what() << std::endl;
 	}
-} 
+	
+	sort.letsGo();
+}

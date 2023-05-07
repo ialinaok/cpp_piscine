@@ -3,22 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ialinaok <ialinaok@student.42.fr>          +#+  +:+       +#+        */
+/*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:45:12 by apielasz          #+#    #+#             */
-/*   Updated: 2023/05/07 01:24:10 by ialinaok         ###   ########.fr       */
+/*   Updated: 2023/05/07 18:10:43 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 	use positive integer sequence as argument
 	./PmergeMe 3 5 9 7 4
-	- input checking - convert to numbers and check if they're bigger than 0 and smaller than MAXINT
-		but MAX_UINT, because we only accept ints anyway
-		check number of args if it's at least 3
+	- start the timer for input checking ✅
+	- input checking
+		- check number of args if it's at least 3 (main) ✅
+		- convert to numbers and check if they're bigger than 0 and smaller than MAXINT (checkInts()) ✅
+		- adding numbers to containers ✅
+	- print out container before sorting ✅
+	- perform algorithm for both contaners 
+	- print out container after sorting
+	- print out timer messages
 
-	TO-DO:
-		✨ check if you need to initialize containers with something
 */
 
 #ifndef PMERGEME_HPP
@@ -29,6 +33,19 @@
 #include <deque>
 #include <list>
 #include <stdexcept>
+#include <cstdlib>
+#include <climits>
+#include <ctime>
+#include <iomanip>
+#include <sys/time.h>
+
+template <typename T>
+void	printContainer(T const &container) {
+
+	typename T::const_iterator	it;
+	for (it = container.begin(); it != container.end(); ++it)
+		std::cout << *it << " ";
+}
 
 class	PmergeMe {
 
@@ -41,10 +58,30 @@ class	PmergeMe {
 		PmergeMe & operator=(PmergeMe const & rhs);
 
 		bool	checkInts(char **input);
+		void	letsGo(void);
+		
+		void	sortDeque(void);
+		void	sortList(void);
+		
+		void	mergeDeque(void);
+		void	mergeList(void);
 
 	private:
-		std::deque<unsigned int>	_deque;
-		std::list<unsigned int>		_list;
+		std::deque<int>	_deque;
+		std::list<int>	_list;
+		double			_timeInputCheck;
 };
+
+// *** COLORS ***//
+# define BLANK "\e[0m"
+# define BLA "\033[0;30m"
+# define RED "\033[0;31m"
+# define GREEN "\033[0;32m"
+# define YELL "\033[0;33m"
+# define BLU "\033[0;34m"
+# define PU "\033[0;35m"
+# define CY "\033[0;36m"
+# define WH "\033[0;37m"
+# define D "\033[0m"
 
 #endif
