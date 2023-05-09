@@ -39,14 +39,6 @@
 #include <iomanip>
 #include <sys/time.h>
 
-template <typename T>
-void	printContainer(T const &container) {
-
-	typename T::const_iterator	it;
-	for (it = container.begin(); it != container.end(); ++it)
-		std::cout << *it << " ";
-}
-
 class	PmergeMe {
 
 	public:
@@ -57,19 +49,27 @@ class	PmergeMe {
 
 		PmergeMe & operator=(PmergeMe const & rhs);
 
-		bool	checkInts(char **input);
 		void	letsGo(void);
-		
-		void	sortDeque(void);
-		void	sortList(void);
-		
-		void	mergeDeque(void);
-		void	mergeList(void);
+		double	getTime(void);
+		template <typename T> void	printContainer(T const &container);
+
+//list functions
+		void						sortList(int start_idx, int end_idx);
+		void						mergeList(int start_idx, int mid_idx, int end_idx);
+		void						insertList(int start_idx, int mid_idx);
+		std::list<int>::iterator	getIteratorAtIndex(int index);
+		int 						getValueAtIndex(std::list<int> input, int index);
+
+//deque functions
+		void	sortDeque(int start_idx, int end_idx);
+		void	mergeDeque(int start_idx, int mid_idx, int end_idx);
+		void	insertDeque(int start_idx, int mid_idx);
 
 	private:
-		std::deque<int>	_deque;
-		std::list<int>	_list;
-		double			_timeInputCheck;
+		std::deque<int>		_deque;
+		std::list<int>		_list;
+		static const int	_K = 5;
+		double				_timeInputCheck;
 };
 
 // *** COLORS ***//
