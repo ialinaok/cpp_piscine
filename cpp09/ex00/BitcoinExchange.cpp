@@ -53,7 +53,6 @@ BitcoinExchange &	BitcoinExchange::operator=(BitcoinExchange const & rhs) {
 
 	if (this != &rhs) {
 		this->_db = rhs._db;
-		this->_input = rhs._input;
 	}
 	return (*this);
 }
