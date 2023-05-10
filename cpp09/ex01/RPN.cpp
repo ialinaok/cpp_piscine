@@ -61,7 +61,7 @@ bool	RPN::isValidRPN(std::string input) {
 			token = "";
 			continue ;
 		}
-		else if (isdigit(*it) && *next == ' ')
+		else if (isdigit(*it) && (*next == ' ' || *next == '\0'))
 			token += *it;
 		else
 			return (false);

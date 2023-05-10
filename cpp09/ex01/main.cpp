@@ -30,5 +30,6 @@ int main(int argc, char **argv) {
         std::cout << RED << err.what() << D << std::endl;
         return (1);
     }
+    
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:45:12 by apielasz          #+#    #+#             */
-/*   Updated: 2023/05/07 18:10:43 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/05/10 13:03:37 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ class	PmergeMe {
 	private:
 		std::deque<int>		_deque;
 		std::list<int>		_list;
-		static const int	_K = 5;
+		int					_K;
 		double				_timeInputCheck;
 };
 

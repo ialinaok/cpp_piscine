@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:04:30 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/05/07 18:08:53 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/05/10 13:38:22 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ PmergeMe::PmergeMe(char **input) {
 
 	double	startInputCheck = getTime();
 
-	for (int i = 0; input[i] != NULL; ++i) {
+	int i;
+	for (i = 0; input[i] != NULL; ++i) {
 		long	tmp = std::atol(input[i]);
 		if (tmp <= 0) {
 			std::cerr << RED "Error: only positive integers are accepted." D << std::endl;
@@ -48,7 +49,7 @@ PmergeMe::PmergeMe(char **input) {
 		this->_list.push_back(static_cast<int>(tmp));
 		this->_deque.push_back(static_cast<int>(tmp));
 	}
-
+	_K = (i / 4 > 2) ? (i / 4) : 2;
 	_timeInputCheck = getTime() - startInputCheck;
 }
 
@@ -58,8 +59,6 @@ void	PmergeMe::letsGo(void) {
 	printContainer(_list);
 	std::cout << std::endl;
  
-	std::cout << std::endl << "Time measured before sorts: ";
-	std::cout << std::fixed << std::setprecision(0) << _timeInputCheck << "μs" << std::endl;
 	double	listStartTimer = getTime();
 	sortList(0, _list.size() - 1);
 	double timeSortList = getTime() - listStartTimer;
@@ -77,10 +76,10 @@ void	PmergeMe::letsGo(void) {
 	std::cout << std::endl;
 
 	std::cout << std::endl << "Time to process a range of\t" << _list.size() << " elements with"
-		<< BLU " std::list " D << ": " << _timeInputCheck + timeSortList << "μs" << std::endl;
+		<< BLU " std::list " D << ": " << _timeInputCheck + timeSortList << "ms" << std::endl;
 		
 	std::cout << std::endl << "Time to process a range of\t" << _deque.size() << " elements with"
-		<< PU " std::deque " D << ": " << _timeInputCheck + timeSortDeque << "μs" << std::endl << std::endl;
+		<< PU " std::deque " D << ": " << _timeInputCheck + timeSortDeque << "ms" << std::endl << std::endl;
 }
 
 //function returns time in microseconds
@@ -91,7 +90,7 @@ double PmergeMe::getTime() {
 
 	gettimeofday(&tv, NULL);
 	time = tv.tv_sec + tv.tv_usec *1e-6;
-	return (time * 1000000);
+	return (time * 1000);
 }
 
 template <typename T>
