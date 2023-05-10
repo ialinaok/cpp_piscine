@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 01:04:30 by ialinaok          #+#    #+#             */
-/*   Updated: 2023/05/10 13:38:22 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:00:10 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,16 +185,6 @@ void	PmergeMe::insertList(int start_idx, int mid_idx)
 		it = insertionPos;
 		it++;
 	}
-}
-
-// function to get iterator at index in list; it will increment the iterator
-// index times to get it to desired position
-std::list<int>::iterator PmergeMe::getIteratorAtIndex(int index)
-{
-	std::list<int>::iterator it = _list.begin();
-	for(int i = 0; i < index; i++)
-		it++;
-	return it;
 }
 
 // function to get value at index in list; it will increment the iterator

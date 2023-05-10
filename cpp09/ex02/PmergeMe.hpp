@@ -6,7 +6,7 @@
 /*   By: apielasz <apielasz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 16:45:12 by apielasz          #+#    #+#             */
-/*   Updated: 2023/05/10 13:03:37 by apielasz         ###   ########.fr       */
+/*   Updated: 2023/05/10 14:00:24 by apielasz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ class	PmergeMe {
 		void						sortList(int start_idx, int end_idx);
 		void						mergeList(int start_idx, int mid_idx, int end_idx);
 		void						insertList(int start_idx, int mid_idx);
-		std::list<int>::iterator	getIteratorAtIndex(int index);
 		int 						getValueAtIndex(std::list<int> input, int index);
 
 //deque functions
